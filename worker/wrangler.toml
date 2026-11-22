@@ -1,0 +1,18 @@
+# 用 Wrangler 指令部署時才需要這個檔案；用 Cloudflare 網頁後台貼程式碼可以忽略。
+name = "word-learning"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://kuohappiness.github.io"
+DAILY_LIMIT = "100"
+MODEL = "claude-haiku-5-5"
+
+# 先在 Cloudflare 建立一個 KV namespace，再把 id 填在這裡
+[[kv_namespaces]]
+binding = "CACHE"
+id = "請填入你的 KV namespace id"
+
+# ANTHROPIC_API_KEY 和 INVITE_CODE 用下面的指令設定成 Secret，不要寫進這個檔案：
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put INVITE_CODE
