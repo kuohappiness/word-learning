@@ -5,7 +5,7 @@ export const DEMO = {
     word: '迫不及待',
     type: 'idiom',
     age: '10-11',
-    zhuyin: { source: 'revised', readings: [{ bopomofo: 'ㄆㄛˋ ㄅㄨˋ ㄐㄧˊ ㄉㄞˋ' }] },
+    zhuyin: null, // 執行時由程式從辭典填入
     meaning: '心裡急得等不了，想馬上就去做。',
     anchor: {
       kind: 'scene',
@@ -54,7 +54,7 @@ export const DEMO = {
     word: '辨',
     type: 'char',
     age: '10-11',
-    zhuyin: { source: 'revised', readings: [{ bopomofo: 'ㄅㄧㄢˋ' }] },
+    zhuyin: null, // 執行時由程式從辭典填入
     meaning: '分清楚，看出哪裡不一樣。',
     anchor: {
       kind: 'split',

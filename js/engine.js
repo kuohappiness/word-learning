@@ -34,7 +34,7 @@ export const SYSTEM_ENTRY = `你是「生詞造句」App 的國語老師，替�
 
 【小測驗】
 - quiz_usage：correct 是正確使用目標字詞的一句；wrong 是讀起來通順、但意思用錯的一句（考理解，不是挑語病）。兩句都不可以和 examples 重複。why_right 用一句話說明 correct 為什麼對；explain 用一句話說明 wrong 錯在哪裡。錯的明顯程度依年齡調整，年紀越大越細微。
-- quiz_compare：pair 是 [目標字詞, 容易混淆的另一個]。字 → 形近字；詞 → 意思相近但用法不同，或反義詞；成語 → 長得像的成語，或意思相反的成語。items 給四句，每句剛好有一個「＿＿」空格，其中兩句的答案是目標字詞、兩句的答案是另一個；答案放進空格後要通順正確。contrast 用很短的話對照兩者，例如 {"迫不及待":"人心裡急，等不了","迫在眉睫":"事情急，就在眼前"}。explain 用一句話說明兩者的差別。
+- quiz_compare：pair 是 [目標字詞, 容易混淆的另一個]。字 → 形近字；詞 → 意思相近但用法不同，或反義詞；成語 → 長得像的成語，或意思相反的成語。items 給四句，每句剛好有一個「＿＿」空格，其中兩句的答案是目標字詞、兩句的答案是另一個；答案放進空格後要通順正確。contrast 用很短的話對照兩者，例如 {"迫不及待":"人心裡急，等不了","迫在眉睫":"事情急，就在眼前"}。explain 用一句話說明兩者的差別。如果提供了辭典列的近義詞或反義詞，優先從裡面挑適合學生程度的一個當 pair 的第二個。
 
 【還是不懂時】
 - extra.simpler：比 meaning 更簡單的說法。
@@ -160,12 +160,53 @@ export function callModel({ apiKey, provider, models = {}, system, user, maxToke
 // ───────── 教育部辭典 ─────────
 const cleanDef = (s) => String(s || '').replace(/[`~]/g, '').trim();
 
+// 本機辭典：data/revised/xx.json，由 tools/build-dict.py 從教育部《重編國語辭典修訂本》資料產生。
+// 依第一個字的 Unicode 碼位分成 256 份，查詢時只下載需要的那一份（約 40 KB）。
+export const shardOf = (word) => (String(word).codePointAt(0) % 256).toString(16).padStart(2, '0');
+const shardCache = new Map();
+
+async function loadShard(base, key) {
+  if (!shardCache.has(key)) {
+    const p = fetch(`${base}${key}.json`)
+      .then((res) => (res.ok ? res.json() : null))
+      .catch(() => null)
+      .then((data) => {
+        if (!data) shardCache.delete(key); // 下載失敗下次再試
+        return data;
+      });
+    shardCache.set(key, p);
+  }
+  return shardCache.get(key);
+}
+
+function fromLocal(rs) {
+  return (rs || [])
+    .filter((r) => r && r.b)
+    .map((r) => ({
+      bopomofo: String(r.b).trim(),
+      defs: (r.d || []).map(cleanDef).filter(Boolean),
+      synonyms: r.s || [],
+      antonyms: r.a || [],
+    }));
+}
+
+// 回傳 { source, readings:[{bopomofo, defs, synonyms, antonyms}] }；查不到回傳 null（不顯示注音）
+// env.dictBase：本機辭典的網址（App 用 'data/revised/'）
+// env.CONCISED：Worker 的 KV，匯入《國語辭典簡編本》後優先使用
 export async function lookupDict(word, env = {}) {
   if (env.CONCISED) {
     const hit = await env.CONCISED.get(word, 'json');
     if (hit && Array.isArray(hit.readings) && hit.readings.length) {
       return { source: 'concised', readings: hit.readings };
     }
+  }
+  if (env.dictBase) {
+    const shard = await loadShard(env.dictBase, shardOf(word));
+    if (shard) {
+      const readings = fromLocal(shard[word]);
+      return readings.length ? { source: 'revised', readings } : null;
+    }
+    // 本機辭典下載失敗（例如離線）才改查萌典
   }
   const ctrl = typeof AbortController === 'function' ? new AbortController() : null;
   const timer = ctrl ? setTimeout(() => ctrl.abort(), 8000) : null;
@@ -292,6 +333,8 @@ export function entryPrompt(word, age, dict) {
     dict.readings.forEach((r, i) => {
       lines.push(`讀音 ${i + 1} 的釋義：`);
       (r.defs || []).forEach((d, j) => lines.push(`  ${j + 1}. ${d}`));
+      if (r.synonyms && r.synonyms.length) lines.push(`  辭典列的近義詞：${r.synonyms.join('、')}`);
+      if (r.antonyms && r.antonyms.length) lines.push(`  辭典列的反義詞：${r.antonyms.join('、')}`);
     });
   } else {
     lines.push('教育部辭典：查無此詞。如果它是正確、常用的字詞，照常編寫；如果很可能是打錯字，回傳 typo；如果不是中文字詞，回傳 unknown。');
@@ -308,6 +351,10 @@ export async function buildEntry({ word, age, apiKey, provider, models, env = {}
     try { return normalizeEntry(parseJson(text), word, dict); } catch { return null; }
   };
   let entry = await ask(prompt);
+  // AI 說是打錯字時，建議的寫法要辭典裡真的有，才提示給孩子
+  if (entry && entry.type === 'typo' && env.dictBase && !(await lookupDict(entry.suggest, { dictBase: env.dictBase }))) {
+    entry = { type: 'unknown', word };
+  }
   const issues = entry ? problems(entry) : ['輸出不是合法的 JSON'];
   if (issues.length) {
     const retried = await ask(`${prompt}\n\n上一次的輸出有問題：${issues.join('；')}。請重新輸出完整的 JSON。`);

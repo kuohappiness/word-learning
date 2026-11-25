@@ -56,13 +56,18 @@ App 會看金鑰的開頭自動判斷是哪一家：`sk-ant-` 開頭是 Claude�
 
 ### 4. 確認注音有出現
 
-查一個詞，看字下面有沒有注音。注音是 App 直接向萌典（教育部辭典資料）查的；如果萌典不允許網頁直接查詢，App 仍然可以用，只是不會顯示注音。遇到這種情況，下一步就改成把教育部辭典資料放進 App。
+查一個詞，看字下面有沒有注音。注音來自 App 內建的教育部辭典資料（`data/revised/`），不需要另外連到其他網站；辭典沒收錄的字詞就不顯示注音。
 
 ---
 
 ## 金鑰安全
 
 - 金鑰**只存在孩子的裝置上**，不會出現在這個 repo。**絕對不要**把金鑰寫進任何檔案或 commit。
+- 這個 repo 是公開的，所以有三道防線擋住金鑰：
+  1. `.gitignore` 排除 `.env`、`.dev.vars`、`*.key` 等常放金鑰的檔案。
+  2. commit 前檢查：clone 之後執行一次 `git config core.hooksPath .githooks`，之後每次 commit 都會先跑 `scripts/check-secrets.sh --staged`，發現像金鑰的內容就擋下來。
+  3. GitHub 自動檢查：每次 push 和 PR 都會跑 `scripts/check-secrets.sh` 和 gitleaks（掃描全部 commit 歷史），見 `.github/workflows/checks.yml`。
+- 也建議在 repo 的 **Settings → Code security** 確認 **Secret Protection／Push protection** 是開啟的，GitHub 會在推送時直接擋下已知格式的金鑰。
 - 拿到裝置的人可以從瀏覽器裡看到金鑰。家裡自己用風險不高；萬一裝置遺失或金鑰外流，到 Claude Console 或 OpenAI 後台刪掉這組，再建一組新的貼回其他裝置。
 - 費用上限是帳戶的餘額，或你替這組金鑰所在的 workspace／project 設的每月上限。
 
@@ -75,8 +80,10 @@ App 會看金鑰的開頭自動判斷是哪一家：`sk-ant-` 開頭是 Claude�
 
 ## 注音來源
 
-- 注音**只來自教育部辭典**，不讓 AI 產生；辭典查不到的字詞就不顯示注音。
-- 目前透過萌典 API（moedict.tw）取得，內容是教育部《重編國語辭典修訂本》。
+- 注音**只來自教育部辭典**，不讓 AI 產生；辭典查不到的字詞就不顯示注音。AI 就算回傳注音，程式也會丟掉。
+- 資料是教育部《重編國語辭典修訂本》，整理成 `data/revised/` 放在 App 裡（約 16 萬筆，分成 256 份，查詢時只下載需要的那一份）。說明見 [data/README.md](data/README.md)。
+- 辭典的釋義、近義詞、反義詞會一起交給 AI，讓白話解釋不偏離辭典，「比一比」也優先從辭典列的近反義詞挑。
+- 本機資料下載失敗時（例如第一次使用就離線），才改向萌典 API 查詢。
 - 說明書希望優先使用《國語辭典簡編本》，需要另外取得資料再放進 App。
 
 ## 檔案
@@ -91,6 +98,9 @@ js/store.js             本機紀錄、錯題排程、等級、貼紙、API 金�
 js/api.js               依模式取得字詞內容
 js/engine.js            查辭典、請 AI（Claude 或 OpenAI）編寫、整理內容（直接模式與 Worker 共用）
 js/demo.js              試用模式的範例字詞
+data/revised/           教育部辭典資料（注音、釋義），由 tools/build-dict.py 產生
+scripts/check-secrets.sh  金鑰檢查（commit 前和 GitHub 上都會跑）
+tests/                  程式測試：node --test tests/*.test.mjs
 js/art.js               糰糰、貼紙、圖示
 sw.js                   離線快取
 manifest.webmanifest    安裝到主畫面的設定
@@ -113,9 +123,14 @@ worker/                 日後推廣用的 Cloudflare Worker
 
 Worker 目前只接 Claude 金鑰。
 
+## 維護
+
+- 每次改程式都要把 `sw.js` 的 `VERSION` 加一（目前 `wl-v4`），裝置才會拿到新版。
+- 改完執行 `node --test tests/*.test.mjs` 確認測試通過。
+
 ## 還沒做的
 
-- 放入《國語辭典簡編本》資料（也能解決萌典無法從網頁查詢的情況）
+- 放入《國語辭典簡編本》資料（目前用《重編國語辭典修訂本》）
 - 貼紙目前 3 張，說明書暫定 30 張
 - 每個字詞專屬的記憶插圖（目前用糰糰代替）
 - App 正式名稱

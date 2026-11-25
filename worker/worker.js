@@ -11,6 +11,7 @@
 //   變數    ALLOWED_ORIGIN      例如 https://kuohappiness.github.io（不填 = 允許所有網站呼叫）
 //   變數    DAILY_LIMIT         每台裝置每天最多產生幾次新內容，預設 100
 //   變數    MODEL               預設 claude-haiku-5-5
+//   變數    DICT_BASE（選用）   本機辭典的網址，例如 https://kuohappiness.github.io/word-learning/data/revised/
 //   KV      CONCISED（選用）     匯入教育部《國語辭典簡編本》後綁定，注音會優先用簡編本
 
 import { AGES, CJK, OK_TYPES, buildEntry, buildFeedback, entryOk } from '../js/engine.js';
@@ -63,7 +64,7 @@ async function handleEntry(body, env, cors) {
   }
   if (await overLimit(env, device)) return json({ error: 'limit' }, 429, cors);
 
-  const entry = await buildEntry({ word, age, apiKey: env.ANTHROPIC_API_KEY, provider: 'anthropic', models: { anthropic: env.MODEL }, env });
+  const entry = await buildEntry({ word, age, apiKey: env.ANTHROPIC_API_KEY, provider: 'anthropic', models: { anthropic: env.MODEL }, env: { CONCISED: env.CONCISED, dictBase: env.DICT_BASE } });
 
   if (env.CACHE) {
     // 好的內容長期保存；查不到、打錯字的結果保存 30 天

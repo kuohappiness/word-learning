@@ -1,5 +1,5 @@
 // 離線用：App 本體先從網路拿最新版，連不上時用快取。字型用快取。
-const VERSION = 'wl-v3';
+const VERSION = 'wl-v4';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css',
   'js/config.js', 'js/app.js', 'js/views.js', 'js/store.js', 'js/api.js', 'js/engine.js', 'js/art.js', 'js/demo.js',

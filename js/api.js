@@ -3,7 +3,10 @@
 //   direct：裝置上存了 API 金鑰 → App 直接呼叫 Claude 或 OpenAI（一兩個孩子自己用）
 //   demo：都沒有 → 只能查內建範例
 import { DEMO } from './demo.js';
-import { buildEntry, buildFeedback, EngineError } from './engine.js';
+import { buildEntry, buildFeedback, lookupDict, EngineError } from './engine.js';
+
+// 本機的教育部辭典資料（相對於 index.html）
+const DICT = { dictBase: 'data/revised/' };
 
 export class ApiError extends Error {
   constructor(code) {
@@ -60,10 +63,16 @@ export async function fetchEntry(word, settings, cfg) {
     return post(cfg, '/api/entry', { word, age: settings.age, device: settings.device }, settings.invite);
   }
   if (mode === 'direct') {
-    return direct(() => buildEntry({ word, age: settings.age, apiKey: settings.apiKey, models: modelsOf(cfg), browser: true }));
+    return direct(() => buildEntry({ word, age: settings.age, apiKey: settings.apiKey, models: modelsOf(cfg), env: DICT, browser: true }));
   }
   const d = DEMO[word];
-  if (d) return JSON.parse(JSON.stringify(d));
+  if (d) {
+    const entry = JSON.parse(JSON.stringify(d));
+    // 範例的注音也一律從辭典取得
+    const dict = await lookupDict(word, DICT);
+    entry.zhuyin = dict ? { source: dict.source, readings: dict.readings.map((r) => ({ bopomofo: r.bopomofo })) } : null;
+    return entry;
+  }
   throw new ApiError('demo');
 }
 

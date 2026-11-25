@@ -1,0 +1,7 @@
+# gitleaks 設定：沿用預設規則，辭典資料不用掃（內容是教育部辭典文字）。
+[extend]
+useDefault = true
+
+[allowlist]
+description = "教育部辭典資料"
+paths = ['''^data/revised/.*\.json$''']
