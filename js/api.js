@@ -1,11 +1,21 @@
-// 和 Cloudflare Worker 溝通。workerUrl 留空時使用內建範例（試用模式）。
+// 取得字詞內容與造句回饋。三種模式：
+//   worker：config.js 填了 workerUrl → 經過 Cloudflare Worker（日後推廣時用）
+//   direct：裝置上存了 API 金鑰 → App 直接呼叫 Claude（一兩個孩子自己用）
+//   demo：都沒有 → 只能查內建範例
 import { DEMO } from './demo.js';
+import { buildEntry, buildFeedback, EngineError } from './engine.js';
 
 export class ApiError extends Error {
   constructor(code) {
     super(code);
     this.code = code;
   }
+}
+
+export function modeOf(cfg, settings) {
+  if (cfg.workerUrl) return 'worker';
+  if (settings.apiKey) return 'direct';
+  return 'demo';
 }
 
 function base(cfg) {
@@ -34,23 +44,39 @@ async function post(cfg, path, body, invite) {
   }
 }
 
-export async function fetchEntry(word, settings, cfg) {
-  if (!cfg.workerUrl) {
-    const d = DEMO[word];
-    if (d) return JSON.parse(JSON.stringify(d));
-    throw new ApiError('demo');
+async function direct(fn) {
+  try {
+    return await fn();
+  } catch (e) {
+    throw new ApiError(e instanceof EngineError ? e.kind : 'server');
   }
-  return post(cfg, '/api/entry', { word, age: settings.age, device: settings.device }, settings.invite);
+}
+
+export async function fetchEntry(word, settings, cfg) {
+  const mode = modeOf(cfg, settings);
+  if (mode === 'worker') {
+    return post(cfg, '/api/entry', { word, age: settings.age, device: settings.device }, settings.invite);
+  }
+  if (mode === 'direct') {
+    return direct(() => buildEntry({ word, age: settings.age, apiKey: settings.apiKey, model: cfg.model, browser: true }));
+  }
+  const d = DEMO[word];
+  if (d) return JSON.parse(JSON.stringify(d));
+  throw new ApiError('demo');
 }
 
 export async function fetchFeedback(word, sentence, settings, cfg) {
-  if (!cfg.workerUrl) {
-    return {
-      ok: true,
-      praise: '試用模式還不能請糰糰看句子。',
-      suggestion: '',
-      note: '接上 AI 之後，糰糰會告訴你哪裡寫得好、怎麼改會更通順。',
-    };
+  const mode = modeOf(cfg, settings);
+  if (mode === 'worker') {
+    return post(cfg, '/api/sentence', { word, sentence, age: settings.age, device: settings.device }, settings.invite);
   }
-  return post(cfg, '/api/sentence', { word, sentence, age: settings.age, device: settings.device }, settings.invite);
+  if (mode === 'direct') {
+    return direct(() => buildFeedback({ word, sentence, age: settings.age, apiKey: settings.apiKey, model: cfg.model, browser: true }));
+  }
+  return {
+    ok: true,
+    praise: '試用模式還不能請糰糰看句子。',
+    suggestion: '',
+    note: '貼上 API 金鑰之後，糰糰會告訴你哪裡寫得好、怎麼改會更通順。',
+  };
 }

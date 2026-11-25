@@ -1,10 +1,9 @@
 // 主程式：路由、事件、朗讀。畫面在 views.js，資料在 store.js。
 import * as V from './views.js';
 import * as S from './store.js';
-import { fetchEntry, fetchFeedback } from './api.js';
+import { fetchEntry, fetchFeedback, modeOf } from './api.js';
 
 const cfg = window.WL_CONFIG || {};
-const demo = !cfg.workerUrl;
 const app = document.getElementById('app');
 const tabbar = document.getElementById('tabbar');
 const toastEl = document.getElementById('toast');
@@ -31,6 +30,9 @@ const shuffle = (a) => {
 };
 
 function persist() { S.save(state); }
+
+// worker / direct / demo，見 api.js
+const mode = () => modeOf(cfg, state.settings);
 
 function toast(msg) {
   toastEl.textContent = msg;
@@ -72,7 +74,7 @@ function normalize(s) {
 }
 
 function needsSetup() {
-  return !state.settings.age || (!demo && !state.settings.invite);
+  return !state.settings.age || (mode() === 'worker' && !state.settings.invite);
 }
 
 // ───────── 取得字詞內容（先看本機，再問 Worker）─────────
@@ -138,12 +140,12 @@ function ensureSession(entry) {
 
 // ───────── 路由 ─────────
 function routeHome() {
-  paint(V.viewHome({ demo, due: S.dueToday(state) }), 'home');
+  paint(V.viewHome({ demo: mode() === 'demo', due: S.dueToday(state) }), 'home');
 }
 
 function routeSetup() {
   if (!needsSetup()) { location.replace('#/'); return; }
-  paint(V.viewSetup({ demo }));
+  paint(V.viewSetup({ worker: mode() === 'worker' }));
 }
 
 function routeCard(word) {
@@ -225,7 +227,7 @@ function routeReviewQ() {
 }
 
 function routeMe() {
-  paint(V.viewMe({ state, demo }), 'me');
+  paint(V.viewMe({ state, mode: mode() }), 'me');
 }
 
 const routes = [
@@ -401,10 +403,12 @@ document.addEventListener('submit', async (e) => {
   if (kind === 'setup') {
     const picked = form.querySelector('input[name=age]:checked');
     if (!picked) { toast('請先選年紀'); return; }
-    if (!demo) {
+    if (mode() === 'worker') {
       const inv = form.invite.value.trim();
       if (!inv) { toast('請輸入邀請碼'); return; }
       state.settings.invite = inv;
+    } else if (form.apikey && form.apikey.value.trim()) {
+      state.settings.apiKey = form.apikey.value.trim();
     }
     state.settings.age = picked.value;
     persist();
@@ -415,6 +419,14 @@ document.addEventListener('submit', async (e) => {
     state.settings.invite = form.invite.value.trim();
     persist();
     toast('已儲存邀請碼');
+  }
+
+  if (kind === 'apikey') {
+    state.settings.apiKey = form.apikey.value.trim();
+    persist();
+    current = null;
+    toast(state.settings.apiKey ? '已儲存 API 金鑰' : '已清除 API 金鑰，回到試用模式');
+    render();
   }
 
   if (kind === 'write' && session) {

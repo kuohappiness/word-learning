@@ -60,7 +60,7 @@ export function uuid() {
 
 function defaults() {
   return {
-    settings: { age: null, zhuyin: true, invite: '', device: uuid() },
+    settings: { age: null, zhuyin: true, invite: '', apiKey: '', device: uuid() },
     words: {},
     stickers: {},
   };

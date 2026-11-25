@@ -1,8 +1,8 @@
 // 離線用：App 本體先從網路拿最新版，連不上時用快取。字型用快取。
-const VERSION = 'wl-v1';
+const VERSION = 'wl-v2';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest', 'css/style.css',
-  'js/config.js', 'js/app.js', 'js/views.js', 'js/store.js', 'js/api.js', 'js/art.js', 'js/demo.js',
+  'js/config.js', 'js/app.js', 'js/views.js', 'js/store.js', 'js/api.js', 'js/engine.js', 'js/art.js', 'js/demo.js',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
 ];
 

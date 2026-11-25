@@ -12,8 +12,11 @@ const enc = encodeURIComponent;
 const LEVEL_WORDS = ['簡單', '普通', '好難'];
 
 const ERRORS = {
-  demo: '現在是試用模式，只能查「迫不及待」和「辨」。接上 AI 之後，什麼字詞都能查。',
+  demo: '現在是試用模式，只能查「迫不及待」和「辨」。家長在「我的」貼上 API 金鑰之後，什麼字詞都能查。',
   invite: '邀請碼不對，請到「我的」重新輸入。',
+  apikey: 'API 金鑰不對，請家長到「我的」重新貼上。',
+  credit: 'API 的額度用完了，請家長到 Claude Console 儲值。',
+  busy: 'Claude 現在比較忙，等一下再試一次。',
   limit: '今天的查詢次數用完了，明天再來吧！',
   network: '連不上網路，檢查一下網路再試一次。',
   server: '糰糰暫時查不到，請稍後再試一次。',
@@ -80,13 +83,18 @@ export function viewHome({ demo, due }) {
 }
 
 // ───────── 第一次使用 ─────────
-export function viewSetup({ demo }) {
+const KEY_INPUT = (value = '', placeholder = '') => `<input id="apikey" name="apikey" type="password" class="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(value)}"${placeholder ? ` placeholder="${esc(placeholder)}"` : ''}>`;
+
+export function viewSetup({ worker }) {
   const ages = AGES.map((a) => `<label class="agebtn"><input type="radio" name="age" value="${a.id}"><span class="agebox">${a.label}<small>${a.sub}</small></span></label>`).join('');
+  const access = worker
+    ? '<label class="f-t" for="invite">邀請碼</label><input id="invite" name="invite" type="text" class="text" autocomplete="off" required>'
+    : `<label class="f-t" for="apikey">API 金鑰（家長設定，也可以之後在「我的」貼上）</label>${KEY_INPUT('', 'sk-ant-…')}`;
   return `
   <div class="setup-head">${mascot('plain', 96)}<h1 class="page">嗨！我是糰糰</h1><p class="muted">選好年紀，我會用你聽得懂的方式解釋。</p></div>
   <form data-form="setup" class="card setup">
     <fieldset class="ages"><legend class="f-t">你幾歲？</legend><div class="grid3">${ages}</div></fieldset>
-    ${demo ? '' : '<label class="f-t" for="invite">邀請碼</label><input id="invite" name="invite" type="text" class="text" autocomplete="off" required>'}
+    ${access}
     <button class="btn primary block" type="submit">開始</button>
   </form>`;
 }
@@ -98,7 +106,7 @@ export function viewLoading() {
 
 export function viewError(code, word) {
   return `${backBar('#/')}<div class="loading">${mascot('sad', 96)}<p>${esc(errorText(code))}</p>
-  ${['network', 'server'].includes(code) && word ? `<a class="btn secondary" href="#/w/${enc(word)}" data-act="retry">再試一次</a>` : ''}</div>`;
+  ${['network', 'server', 'busy'].includes(code) && word ? `<a class="btn secondary" href="#/w/${enc(word)}" data-act="retry">再試一次</a>` : ''}</div>`;
 }
 
 export function viewNotWord(entry, word) {
@@ -328,7 +336,7 @@ export function viewReviewDone({ rs }) {
 }
 
 // ───────── 我的 ─────────
-export function viewMe({ state, demo }) {
+export function viewMe({ state, mode }) {
   const count = learnedCount(state);
   const lv = levelInfo(count);
   const ages = AGES.map((a) => `<button type="button" class="agechip${state.settings.age === a.id ? ' on' : ''}" aria-pressed="${state.settings.age === a.id}" data-act="setAge" data-v="${a.id}">${a.label}<small>${a.sub}</small></button>`).join('');
@@ -353,7 +361,9 @@ export function viewMe({ state, demo }) {
   <section class="card">
     <div class="f-t">我的年紀</div><div class="grid3">${ages}</div>
     <div class="switch-row"><label for="zy">顯示注音</label><input id="zy" type="checkbox"${state.settings.zhuyin ? ' checked' : ''}></div>
-    ${demo ? '' : `<form data-form="invite" class="invite-row"><label for="invite">邀請碼</label><input id="invite" name="invite" type="text" class="text" autocomplete="off" value="${esc(state.settings.invite)}"><button class="btn secondary small-btn" type="submit">儲存</button></form>`}
+    ${mode === 'worker'
+    ? `<form data-form="invite" class="invite-row"><label for="invite">邀請碼</label><input id="invite" name="invite" type="text" class="text" autocomplete="off" value="${esc(state.settings.invite)}"><button class="btn secondary small-btn" type="submit">儲存</button></form>`
+    : `<form data-form="apikey" class="invite-row"><label for="apikey">API 金鑰</label>${KEY_INPUT(state.settings.apiKey, '還沒設定')}<button class="btn secondary small-btn" type="submit">儲存</button></form>`}
   </section>
   <h2 class="sec">升級之路</h2>
   <p class="muted small rule">小測驗答對，或錯題複習答對，就算學會一個</p>
