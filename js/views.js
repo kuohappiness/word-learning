@@ -100,8 +100,23 @@ export function viewSetup({ worker }) {
 }
 
 // ───────── 查詢中、錯誤 ─────────
-export function viewLoading() {
+// head：{ word, zhuyin }，查完辭典後先顯示大字和注音
+export function viewLoading(head = null) {
+  if (head && head.word) {
+    const chars = [...head.word];
+    const syl = head.zhuyin ? head.zhuyin.trim().split(/\s+/) : [];
+    const per = syl.length === chars.length;
+    const charHtml = chars.map((c, i) => `<span class="ch"><span class="glyph">${esc(c)}</span>${per ? `<span class="zy">${esc(syl[i])}</span>` : ''}</span>`).join('');
+    const big = chars.length === 1
+      ? `<section class="card charhead"><span class="bigchar">${esc(head.word)}</span>${head.zhuyin ? `<div class="zy-row"><span class="zy-big">${esc(head.zhuyin)}</span></div>` : ''}</section>`
+      : `<section class="card wordhead"><div class="wh-main"><div class="chars">${charHtml}</div></div>${syl.length && !per ? `<p class="zy-line">${esc(head.zhuyin)}</p>` : ''}</section>`;
+    return `${backBar('#/')}${big}<div class="loading short">${mascot('search', 72)}<p>糰糰正在寫解釋…</p></div>`;
+  }
   return `${backBar('#/')}<div class="loading">${mascot('search', 104)}<p>糰糰正在查辭典…</p></div>`;
+}
+
+export function viewQuizLoading(entry) {
+  return `${backBar(`#/w/${enc(entry.word)}`, '回到學習卡')}<div class="loading">${mascot('book', 96)}<p>糰糰正在出題…</p></div>`;
 }
 
 export function viewError(code, word) {
@@ -130,8 +145,8 @@ function wordHead(entry, settings) {
   return `<section class="card wordhead"><div class="wh-main"><div class="chars">${charHtml}</div>${speakBtn(entry.word, '聽發音', true)}</div>${whole}</section>`;
 }
 
-export function viewCard({ entry, settings }) {
-  if (entry.type === 'char') return viewChar({ entry, settings });
+export function viewCard({ entry, settings, canQuiz = hasQuiz(entry) }) {
+  if (entry.type === 'char') return viewChar({ entry, settings, canQuiz });
   const m = entry.common_mistake;
   return `${backBar('#/')}
   ${wordHead(entry, settings)}
@@ -142,11 +157,11 @@ export function viewCard({ entry, settings }) {
   ${(entry.examples || []).map((ex, i) => `<div class="card line"><p class="ex">${hl(ex, entry.word)}</p>${speakBtn(ex, `朗讀例句${i + 1}`)}</div>`).join('')}
   ${entry.pattern ? `<p class="note-line"><span class="label">造句公式</span>${hl(entry.pattern, entry.word)}</p>` : ''}
   ${m && m.wrong && m.right ? `<p class="note-line"><span class="label">常寫錯</span>${mistakeHtml(m)}</p>` : ''}
-  ${hasQuiz(entry) ? `<a class="btn primary block" href="#/q1/${enc(entry.word)}">小測驗</a>` : ''}`;
+  ${canQuiz ? `<a class="btn primary block" href="#/q1/${enc(entry.word)}">小測驗</a>` : ''}`;
 }
 
 // ───────── 字卡 ─────────
-function viewChar({ entry, settings }) {
+function viewChar({ entry, settings, canQuiz }) {
   const readings = (settings.zhuyin && entry.zhuyin && entry.zhuyin.readings) || [];
   const rw = entry.reading_words || [];
   const single = readings.length === 1 ? `<span class="zy-big">${esc(readings[0].bopomofo)}</span>` : '';
@@ -155,7 +170,7 @@ function viewChar({ entry, settings }) {
     : '';
   const looks = (entry.lookalikes || []).filter((l) => l && l.char);
   const anchor = looks.length >= 2
-    ? `<section class="anchor"><h2>${esc(entry.lookalike_title || '看偏旁，就分得清')}</h2><div class="tiles">${looks.map((l) => `<div class="tile${l.char === entry.word ? ' on' : ''}"><span class="tile-ch">${esc(l.char)}</span><span>${esc(l.part)}</span><span class="muted">${esc(l.hint)}${l.word ? ` → ${esc(l.word)}` : ''}</span></div>`).join('')}</div></section>`
+    ? `<section class="anchor"><h2>${esc(entry.lookalike_title || '看偏旁，就分得清')}</h2><div class="tiles">${looks.map((l) => `<div class="tile${l.char === entry.word ? ' on' : ''}"><span class="tile-top"><span class="tile-ch">${esc(l.char)}</span>${settings.zhuyin && l.zhuyin ? `<span class="tile-zy">${esc(l.zhuyin)}</span>` : ''}</span><span>${esc(l.part)}</span><span class="muted">${esc(l.hint)}${l.word ? ` → ${esc(l.word)}` : ''}</span></div>`).join('')}</div></section>`
     : anchorBlock(entry.anchor);
   const words = entry.common_words || [];
   return `${backBar('#/')}
@@ -164,7 +179,7 @@ function viewChar({ entry, settings }) {
   <div class="card line"><p>${esc(entry.meaning)}</p>${speakBtn(entry.meaning, '朗讀意思')}</div>
   ${words.length ? `<h2 class="sec">常用詞</h2><div class="chips">${words.map((w) => `<a class="chip white" href="#/w/${enc(w)}">${esc(w)}</a>`).join('')}</div>` : ''}
   ${anchor}
-  ${hasQuiz(entry) ? `<a class="btn primary block" href="#/q1/${enc(entry.word)}">小測驗</a>` : ''}`;
+  ${canQuiz ? `<a class="btn primary block" href="#/q1/${enc(entry.word)}">小測驗</a>` : ''}`;
 }
 
 // ───────── 小測驗 1/2：用對了嗎 ─────────

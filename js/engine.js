@@ -16,7 +16,7 @@ export const AGES = {
   '15-16': '15–16 歲（高中）：情境可以比較抽象；可以帶出近義詞的差別、正式和口語的用法。',
 };
 
-export const SYSTEM_ENTRY = `你是「生詞造句」App 的國語老師，替台灣 10–16 歲的學生編寫字詞學習卡。一律使用繁體中文和台灣用語。
+const HEADER = `你是「生詞造句」App 的國語老師，替台灣 10–16 歲的學生編寫字詞學習卡。一律使用繁體中文和台灣用語。
 最上層原則：讓學生更輕鬆、更有效率、更正確地吸收知識。
 
 【正確性】
@@ -24,28 +24,23 @@ export const SYSTEM_ENTRY = `你是「生詞造句」App 的國語老師，替�
 - 意思必須符合提供給你的教育部辭典釋義；用自己的話改寫，不可逐字照抄，也不可偏離。
 - 拆字只能用真正的字源（例如形聲字的偏旁）；不要用諧音記憶；不要編造典故。
 - 所有句子內容正向、適合兒少。
+`;
+
+// 為了讓孩子早點看到內容，一個字詞分兩次請 AI 編寫：先寫學習卡（SYSTEM_CARD），孩子在看卡片時，再在背景出小測驗（SYSTEM_QUIZ）。
+export const SYSTEM_CARD = `${HEADER}
+這一次只寫「學習卡」，小測驗之後另外出。
 
 【編寫原則】
 1. meaning：一句白話解釋，用字比學生程度更簡單；不用更難的詞解釋，也不用這個字詞本身解釋。
-2. anchor：只給一個最好記的記憶錨點。kind 是 scene（以吉祥物「糰糰」——一顆白色湯圓——為主角、誇張但貼切的小場景）、split（字形拆解）、contrast（和長得像的字詞對比）、story（成語典故濃縮）、life（連結學生年齡的生活經驗）其中之一。scene 寫一兩句話。mnemonic 是一句口訣，格式像「迫不及待 ＝ 人心裡急，等不了」。
+2. anchor：只給一個最好記的記憶錨點。kind 是 scene（以吉祥物「糰糰」——一顆白色湯圓——為主角、誇張但貼切的小場景）、split（字形拆解）、contrast（和容易搞混的字詞對比）、story（成語典故濃縮）、life（連結學生年齡的生活經驗）其中之一。scene 寫一兩句話。mnemonic 是一句口訣，格式像「迫不及待 ＝ 人心裡急，等不了」。如果提供了「容易搞混」的字詞，優先用 contrast，把差別收成一句口訣。
 3. examples：兩句，情境不同；句子裡要有原因和動作，讓人光看上下文就猜得出意思，換成別的詞就不通。
 4. pattern：一個造句公式，例如「迫不及待地＋馬上做某件事」。
 5. common_mistake：只有常見錯字或常見誤用時才填，例如 {"wrong":"迫不急待","right":"迫不及待"}；否則填 null。
 
-【小測驗】
-- quiz_usage：correct 是正確使用目標字詞的一句；wrong 是讀起來通順、但意思用錯的一句（考理解，不是挑語病）。兩句都不可以和 examples 重複。why_right 用一句話說明 correct 為什麼對；explain 用一句話說明 wrong 錯在哪裡。錯的明顯程度依年齡調整，年紀越大越細微。
-- quiz_compare：pair 是 [目標字詞, 容易混淆的另一個]。字 → 形近字；詞 → 意思相近但用法不同，或反義詞；成語 → 長得像的成語，或意思相反的成語。items 給四句，每句剛好有一個「＿＿」空格，其中兩句的答案是目標字詞、兩句的答案是另一個；答案放進空格後要通順正確。contrast 用很短的話對照兩者，例如 {"迫不及待":"人心裡急，等不了","迫在眉睫":"事情急，就在眼前"}。explain 用一句話說明兩者的差別。如果提供了辭典列的近義詞或反義詞，優先從裡面挑適合學生程度的一個當 pair 的第二個。
-
-【還是不懂時】
-- extra.simpler：比 meaning 更簡單的說法。
-- extra.alt_anchor：另一個不同類型的記憶錨點 {"scene":"","mnemonic":""}。
-- extra.more_examples：另外兩句新例句。
-- story：只有成語才填，把典故濃縮成三句以內；不確定出處就填 null。
-
 【單一個字（type 為 char）另外要填】
 - common_words：三個常用詞。
-- lookalikes：只有真的有共用同一個聲旁的形近字家族時才填（包含目標字本身，最多四個），每個 {"char":"辯","part":"中間是「言」","hint":"用嘴說","word":"辯論"}；lookalike_title 例如「看中間，就分得清」。沒有就給 []。
-- 如果提供的讀音不只一個，reading_words 依讀音順序各給一到兩個常用詞，例如 [["銀行"],["行走","旅行"]]。
+- lookalikes：只有真的有共用同一個聲旁的形近字家族時才填（包含目標字本身，最多四個），每個 {"char":"辯","part":"中間是「言」","hint":"用嘴說","word":"辯論"}；word 是用那個字的一個常用詞。lookalike_title 例如「看中間，就分得清」。沒有就給 []。
+- 如果提供的讀音不只一個，reading_words 依讀音順序各給一到兩個常用詞，例如 [["銀行"],["行走","旅行"]]；很少用的讀音給 []。
 
 【特殊情況】只輸出其中一個，不要其他欄位：
 - 字詞不適合兒少：{"type":"blocked"}
@@ -53,7 +48,23 @@ export const SYSTEM_ENTRY = `你是「生詞造句」App 的國語老師，替�
 - 不是中文字詞：{"type":"unknown"}
 
 【輸出】只輸出一個 JSON 物件，不要任何說明文字，也不要程式碼框。格式：
-{"type":"char 或 word 或 idiom","meaning":"","anchor":{"kind":"","scene":"","mnemonic":""},"examples":["",""],"pattern":"","common_mistake":null,"quiz_usage":{"correct":"","wrong":"","why_right":"","explain":""},"quiz_compare":{"pair":["",""],"items":[{"sentence":"","answer":""}],"contrast":{},"explain":""},"extra":{"simpler":"","alt_anchor":{"scene":"","mnemonic":""},"more_examples":["",""]},"story":null,"common_words":[],"lookalikes":[],"lookalike_title":"","reading_words":[]}`;
+{"type":"char 或 word 或 idiom","meaning":"","anchor":{"kind":"","scene":"","mnemonic":""},"examples":["",""],"pattern":"","common_mistake":null,"common_words":[],"lookalikes":[],"lookalike_title":"","reading_words":[]}`;
+
+export const SYSTEM_QUIZ = `${HEADER}
+學習卡已經寫好了（會提供給你），這一次只出「小測驗」和「還是不懂時」的內容。
+
+【小測驗】
+- quiz_usage：correct 是正確使用目標字詞的一句；wrong 是讀起來通順、但意思用錯的一句（考理解，不是挑語病）。兩句都不可以和學習卡的例句重複。why_right 用一句話說明 correct 為什麼對；explain 用一句話說明 wrong 錯在哪裡，盡量呼應學習卡的口訣。錯的明顯程度依年齡調整，年紀越大越細微。
+- quiz_compare：pair 是 [目標字詞, 容易混淆的另一個]。如果提供了「容易搞混」的字詞，一定從裡面挑一個。沒有的話：字 → 形近字或同音易混的字；詞 → 意思相近但用法不同，或反義詞；成語 → 長得像的成語，或意思相反的成語；有辭典列的近義詞或反義詞時，優先從裡面挑適合學生程度的。items 給四句，每句剛好有一個「＿＿」空格，其中兩句的答案是目標字詞、兩句的答案是另一個；答案放進空格後要通順正確，放錯就明顯不對。contrast 用很短的話對照兩者，例如 {"迫不及待":"人心裡急，等不了","迫在眉睫":"事情急，就在眼前"}。explain 用一句話說明兩者的差別。
+
+【還是不懂時】
+- extra.simpler：比學習卡的意思更簡單的說法。
+- extra.alt_anchor：另一個不同類型的記憶錨點 {"scene":"","mnemonic":""}。
+- extra.more_examples：另外兩句新例句，不和學習卡、測驗重複。
+- story：只有成語才填，把典故濃縮成三句以內；不確定出處就填 null。
+
+【輸出】只輸出一個 JSON 物件，不要任何說明文字，也不要程式碼框。格式：
+{"quiz_usage":{"correct":"","wrong":"","why_right":"","explain":""},"quiz_compare":{"pair":["",""],"items":[{"sentence":"","answer":""}],"contrast":{},"explain":""},"extra":{"simpler":"","alt_anchor":{"scene":"","mnemonic":""},"more_examples":["",""]},"story":null}`;
 
 export const SYSTEM_SENTENCE = `你是溫和的國語老師「糰糰」，幫台灣 10–16 歲的學生看他用指定字詞造的句子。一律使用繁體中文和台灣用語。
 只輸出一個 JSON 物件，不要其他文字：
@@ -179,9 +190,15 @@ async function loadShard(base, key) {
   return shardCache.get(key);
 }
 
+// 辭典常把「姓」這種少用的讀音排第一個（例如「查」的ㄓㄚ），排到後面，讓常用讀音先出現
+const rareFirst = (r) => /^姓/.test((r.d || [])[0] || '');
+
 function fromLocal(rs) {
   return (rs || [])
     .filter((r) => r && r.b)
+    .map((r, i) => ({ r, i }))
+    .sort((x, y) => (rareFirst(x.r) - rareFirst(y.r)) || (x.i - y.i))
+    .map(({ r }) => r)
     .map((r) => ({
       bopomofo: String(r.b).trim(),
       defs: (r.d || []).map(cleanDef).filter(Boolean),
@@ -236,26 +253,8 @@ export async function lookupDict(word, env = {}) {
 const str = (v) => (typeof v === 'string' ? v.trim() : '');
 const strList = (v, n) => (Array.isArray(v) ? v.map(str).filter(Boolean).slice(0, n) : []);
 
-export function normalizeEntry(raw, word, dict) {
-  const type = str(raw.type);
-  if (type === 'blocked') return { type: 'blocked', word };
-  if (type === 'unknown') return { type: 'unknown', word };
-  if (type === 'typo') {
-    const suggest = str(raw.suggest);
-    return CJK.test(suggest) && suggest !== word ? { type: 'typo', word, suggest } : { type: 'unknown', word };
-  }
-
-  let t = OK_TYPES.includes(type) ? type : 'word';
-  if ([...word].length === 1) t = 'char';
-  else if (t === 'char') t = 'word';
-
-  const anchor = raw.anchor && typeof raw.anchor === 'object'
-    ? { kind: str(raw.anchor.kind), scene: str(raw.anchor.scene), mnemonic: str(raw.anchor.mnemonic) }
-    : null;
-  const cm = raw.common_mistake && str(raw.common_mistake.wrong) && str(raw.common_mistake.right)
-    ? { wrong: str(raw.common_mistake.wrong), right: str(raw.common_mistake.right) }
-    : null;
-
+export function normalizeQuiz(raw, word, type) {
+  raw = raw || {};
   const qu = raw.quiz_usage || {};
   const quiz_usage = str(qu.correct) && str(qu.wrong)
     ? { correct: str(qu.correct), wrong: str(qu.wrong), why_right: str(qu.why_right), explain: str(qu.explain) }
@@ -284,6 +283,33 @@ export function normalizeEntry(raw, word, dict) {
   const alt = x.alt_anchor && str(x.alt_anchor.scene)
     ? { scene: str(x.alt_anchor.scene), mnemonic: str(x.alt_anchor.mnemonic) }
     : null;
+  return {
+    quiz_usage,
+    quiz_compare,
+    extra: { simpler: str(x.simpler), alt_anchor: alt, more_examples: strList(x.more_examples, 2) },
+    story: type === 'idiom' ? (str(raw.story) || null) : null,
+  };
+}
+
+export function normalizeEntry(raw, word, dict) {
+  const type = str(raw.type);
+  if (type === 'blocked') return { type: 'blocked', word };
+  if (type === 'unknown') return { type: 'unknown', word };
+  if (type === 'typo') {
+    const suggest = str(raw.suggest);
+    return CJK.test(suggest) && suggest !== word ? { type: 'typo', word, suggest } : { type: 'unknown', word };
+  }
+
+  let t = OK_TYPES.includes(type) ? type : 'word';
+  if ([...word].length === 1) t = 'char';
+  else if (t === 'char') t = 'word';
+
+  const anchor = raw.anchor && typeof raw.anchor === 'object'
+    ? { kind: str(raw.anchor.kind), scene: str(raw.anchor.scene), mnemonic: str(raw.anchor.mnemonic) }
+    : null;
+  const cm = raw.common_mistake && str(raw.common_mistake.wrong) && str(raw.common_mistake.right)
+    ? { wrong: str(raw.common_mistake.wrong), right: str(raw.common_mistake.right) }
+    : null;
 
   return {
     word,
@@ -293,10 +319,7 @@ export function normalizeEntry(raw, word, dict) {
     examples: strList(raw.examples, 2),
     pattern: str(raw.pattern),
     common_mistake: cm,
-    quiz_usage,
-    quiz_compare,
-    extra: { simpler: str(x.simpler), alt_anchor: alt, more_examples: strList(x.more_examples, 2) },
-    story: t === 'idiom' ? (str(raw.story) || null) : null,
+    ...normalizeQuiz(raw, word, t),
     common_words: t === 'char' ? strList(raw.common_words, 4) : [],
     lookalikes: t === 'char' && Array.isArray(raw.lookalikes)
       ? raw.lookalikes
@@ -311,23 +334,76 @@ export function normalizeEntry(raw, word, dict) {
   };
 }
 
-export function problems(entry) {
+export function cardProblems(entry) {
   if (!OK_TYPES.includes(entry.type)) return [];
   const p = [];
   if (!entry.meaning) p.push('缺少 meaning');
   if (entry.examples.length < 2) p.push('examples 要兩句');
+  return p;
+}
+
+export function quizProblems(entry) {
+  const p = [];
   if (!entry.quiz_usage) p.push('quiz_usage 不完整');
   if (!entry.quiz_compare) p.push('quiz_compare 不完整：pair 第一個要是目標字詞，items 每句要有「＿＿」，兩個答案都要出現');
   return p;
 }
 
-export const entryOk = (entry) => OK_TYPES.includes(entry.type) && !problems(entry).length;
+export function problems(entry) {
+  if (!OK_TYPES.includes(entry.type)) return [];
+  return [...cardProblems(entry), ...quizProblems(entry)];
+}
 
-export function entryPrompt(word, age, dict) {
-  const lines = [
-    `目標字詞：${word}（${[...word].length} 個字）`,
-    `學生年齡：${AGES[age] || AGES['10-11']}`,
-  ];
+export const entryOk = (entry) => OK_TYPES.includes(entry.type) && !problems(entry).length;
+export const hasQuiz = (entry) => !!(entry && entry.quiz_usage && entry.quiz_compare);
+
+// ───────── 容易搞混的字詞（data/confusables.json，可以自己增加）─────────
+let confusableCache = null;
+export async function loadConfusables(env = {}) {
+  if (!env.confusablesUrl) return [];
+  if (!confusableCache) {
+    confusableCache = fetch(env.confusablesUrl)
+      .then((res) => (res.ok ? res.json() : null))
+      .catch(() => null)
+      .then((data) => {
+        const groups = data && Array.isArray(data.groups) ? data.groups.filter((g) => Array.isArray(g) && g.length >= 2) : null;
+        if (!groups) confusableCache = null; // 下載失敗下次再試
+        return groups || [];
+      });
+  }
+  return confusableCache;
+}
+
+export async function confusablesOf(word, env = {}) {
+  const groups = await loadConfusables(env);
+  const out = [];
+  for (const g of groups) if (g.includes(word)) for (const w of g) if (w !== word && !out.includes(w)) out.push(w);
+  return out;
+}
+
+// ───────── 形近字補注音（只用辭典）─────────
+// 依那個字的常用詞找出它在詞裡的讀音；找不到時，只有一個讀音的字才標
+export async function lookalikeZhuyin(ch, word, env = {}) {
+  if (word && word.includes(ch)) {
+    const d = await lookupDict(word, env);
+    const syl = d && d.readings[0] && d.readings[0].bopomofo.split(/\s+/);
+    const chars = [...word];
+    if (syl && syl.length === chars.length) return syl[chars.indexOf(ch)];
+  }
+  const d = await lookupDict(ch, env);
+  return d && d.readings.length === 1 ? d.readings[0].bopomofo : null;
+}
+
+export async function addLookalikeZhuyin(entry, env = {}) {
+  if (!entry || !Array.isArray(entry.lookalikes) || !entry.lookalikes.length) return entry;
+  await Promise.all(entry.lookalikes.map(async (l) => {
+    l.zhuyin = await lookalikeZhuyin(l.char, l.word, env);
+  }));
+  return entry;
+}
+
+function dictLines(dict) {
+  const lines = [];
   if (dict) {
     lines.push(`教育部辭典：有收錄，共 ${dict.readings.length} 個讀音。以下是辭典釋義，請以它為準：`);
     dict.readings.forEach((r, i) => {
@@ -339,29 +415,83 @@ export function entryPrompt(word, age, dict) {
   } else {
     lines.push('教育部辭典：查無此詞。如果它是正確、常用的字詞，照常編寫；如果很可能是打錯字，回傳 typo；如果不是中文字詞，回傳 unknown。');
   }
+  return lines;
+}
+
+export function entryPrompt(word, age, dict, confusables = []) {
+  const lines = [
+    `目標字詞：${word}（${[...word].length} 個字）`,
+    `學生年齡：${AGES[age] || AGES['10-11']}`,
+    ...dictLines(dict),
+  ];
+  if (confusables.length) lines.push(`容易搞混：${confusables.join('、')}`);
   return lines.join('\n');
 }
 
-// 產生一個字詞的完整內容；內容不完整或格式錯會再請 AI 重寫一次
-export async function buildEntry({ word, age, apiKey, provider, models, env = {}, browser = false }) {
-  const dict = await lookupDict(word, env);
-  const prompt = entryPrompt(word, age, dict);
+export function quizPrompt(entry, age, dict, confusables = []) {
+  const lines = [
+    `目標字詞：${entry.word}（${entry.type === 'char' ? '字' : entry.type === 'idiom' ? '成語' : '詞'}）`,
+    `學生年齡：${AGES[age] || AGES['10-11']}`,
+    ...(dict ? dictLines(dict) : []),
+  ];
+  if (confusables.length) lines.push(`容易搞混：${confusables.join('、')}`);
+  lines.push('學習卡：');
+  lines.push(`  意思：${entry.meaning}`);
+  if (entry.anchor && entry.anchor.mnemonic) lines.push(`  口訣：${entry.anchor.mnemonic}`);
+  (entry.examples || []).forEach((ex, i) => lines.push(`  例句 ${i + 1}：${ex}`));
+  return lines.join('\n');
+}
+
+// 第一步：學習卡。onDict(dict) 會在查完辭典、等 AI 之前先呼叫，讓畫面可以先顯示大字和注音
+export async function buildCard({ word, age, apiKey, provider, models, env = {}, browser = false, onDict }) {
+  const [dict, confusables] = await Promise.all([lookupDict(word, env), confusablesOf(word, env)]);
+  if (onDict) { try { onDict(dict); } catch { /* 畫面的事，不影響內容 */ } }
+  const prompt = entryPrompt(word, age, dict, confusables);
   const ask = async (p) => {
-    const text = await callModel({ apiKey, provider, models, system: SYSTEM_ENTRY, user: p, maxTokens: 3000, browser });
+    const text = await callModel({ apiKey, provider, models, system: SYSTEM_CARD, user: p, maxTokens: 1500, browser });
     try { return normalizeEntry(parseJson(text), word, dict); } catch { return null; }
   };
   let entry = await ask(prompt);
-  // AI 說是打錯字時，建議的寫法要辭典裡真的有，才提示給孩子
-  if (entry && entry.type === 'typo' && env.dictBase && !(await lookupDict(entry.suggest, { dictBase: env.dictBase }))) {
-    entry = { type: 'unknown', word };
-  }
-  const issues = entry ? problems(entry) : ['輸出不是合法的 JSON'];
+  const issues = entry ? cardProblems(entry) : ['輸出不是合法的 JSON'];
   if (issues.length) {
     const retried = await ask(`${prompt}\n\n上一次的輸出有問題：${issues.join('；')}。請重新輸出完整的 JSON。`);
     if (retried) entry = retried;
   }
   if (!entry) throw new EngineError('server', 0, 'bad json');
+  // AI 說是打錯字時，建議的寫法要辭典裡真的有，才提示給孩子
+  if (entry.type === 'typo' && env.dictBase && !(await lookupDict(entry.suggest, env))) {
+    entry = { type: 'unknown', word };
+  }
+  if (entry.type === 'char') await addLookalikeZhuyin(entry, env);
   entry.age = age;
+  return entry;
+}
+
+// 第二步：小測驗與「還是不懂時」，回傳要併進 entry 的欄位
+export async function buildQuiz({ entry, age, apiKey, provider, models, env = {}, browser = false }) {
+  const [dict, confusables] = await Promise.all([lookupDict(entry.word, env), confusablesOf(entry.word, env)]);
+  const prompt = quizPrompt(entry, age, dict, confusables);
+  const ask = async (p) => {
+    const text = await callModel({ apiKey, provider, models, system: SYSTEM_QUIZ, user: p, maxTokens: 1800, browser });
+    try { return normalizeQuiz(parseJson(text), entry.word, entry.type); } catch { return null; }
+  };
+  let quiz = await ask(prompt);
+  const issues = quiz ? quizProblems(quiz) : ['輸出不是合法的 JSON'];
+  if (issues.length) {
+    const retried = await ask(`${prompt}\n\n上一次的輸出有問題：${issues.join('；')}。請重新輸出完整的 JSON。`);
+    if (retried && !quizProblems(retried).length) quiz = retried;
+  }
+  if (!quiz || quizProblems(quiz).length) throw new EngineError('server', 0, 'bad quiz');
+  return quiz;
+}
+
+// 一次產生完整內容（Worker 用）
+export async function buildEntry(opts) {
+  const entry = await buildCard(opts);
+  if (!OK_TYPES.includes(entry.type)) return entry;
+  try {
+    Object.assign(entry, await buildQuiz({ ...opts, entry }));
+  } catch { /* 小測驗出不來時，學習卡照常顯示 */ }
   return entry;
 }
 

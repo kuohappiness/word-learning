@@ -160,6 +160,7 @@ input.text {
 .loading { text-align: center; padding-top: 4rem; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
 .loading p { margin: 0; font-size: 1.0625rem; line-height: 1.6; max-width: 22rem; }
 .loading .btn { margin-top: .75rem; min-width: 12rem; }
+.loading.short { padding-top: 1.5rem; }
 @media (prefers-reduced-motion: no-preference) {
   .loading .mascot { animation: bob 1.4s ease-in-out infinite; }
 }
@@ -191,6 +192,8 @@ input.text {
 .tile.on { border-color: #F29A50; }
 .tile-ch { font-size: 2.125rem; line-height: 1.2; }
 .tile.on .tile-ch { color: var(--pri); }
+.tile-top { display: flex; align-items: center; gap: .5rem; }
+.tile-zy { font-size: .875rem; color: var(--muted); letter-spacing: .02em; }
 
 /* ───── 小測驗 ───── */
 .qhead { display: flex; align-items: flex-start; gap: .25rem; }
