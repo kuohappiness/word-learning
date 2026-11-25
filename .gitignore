@@ -1,0 +1,21 @@
+# 金鑰、環境變數：一律不進 repo（SPEC 第 4 節）
+.env
+.env.*
+*.env
+.dev.vars
+*.key
+*.pem
+secrets*.json
+*secret*.txt
+api-key*
+apikey*
+
+# Cloudflare Worker 本機檔案
+.wrangler/
+worker/.wrangler/
+
+# 開發工具
+node_modules/
+test-results/
+playwright-report/
+.DS_Store

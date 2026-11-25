@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# commit 前檢查有沒有金鑰。啟用方式（每個 clone 做一次）：git config core.hooksPath .githooks
+exec "$(git rev-parse --show-toplevel)/scripts/check-secrets.sh" --staged
