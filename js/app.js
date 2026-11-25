@@ -2,6 +2,7 @@
 import * as V from './views.js';
 import * as S from './store.js';
 import { fetchEntry, fetchFeedback, modeOf } from './api.js';
+import { providerOf } from './engine.js';
 
 const cfg = window.WL_CONFIG || {};
 const app = document.getElementById('app');
@@ -425,7 +426,7 @@ document.addEventListener('submit', async (e) => {
     state.settings.apiKey = form.apikey.value.trim();
     persist();
     current = null;
-    toast(state.settings.apiKey ? '已儲存 API 金鑰' : '已清除 API 金鑰，回到試用模式');
+    toast(state.settings.apiKey ? `已儲存 ${providerOf(state.settings.apiKey) === 'openai' ? 'OpenAI' : 'Claude'} 金鑰` : '已清除 API 金鑰，回到試用模式');
     render();
   }
 

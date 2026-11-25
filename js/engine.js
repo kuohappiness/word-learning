@@ -1,10 +1,12 @@
-// 產生字詞內容的核心：查教育部辭典、請 Claude 依說明書規則編寫、整理成固定格式。
+// 產生字詞內容的核心：查教育部辭典、請 AI（Claude 或 OpenAI）依說明書規則編寫、整理成固定格式。
 // App 的「直接模式」和 Cloudflare Worker 都用這一份，規則只寫在這裡。
 // 注音只來自教育部辭典，絕不讓 AI 產生。
 
 const MOEDICT = 'https://www.moedict.tw/uni/'; // 萌典 API：教育部《重編國語辭典修訂本》資料
 const CLAUDE_URL = 'https://api.anthropic.com/v1/messages';
+const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
 export const DEFAULT_MODEL = 'claude-haiku-5-5';
+export const DEFAULT_OPENAI_MODEL = 'gpt-6-luna';
 export const OK_TYPES = ['char', 'word', 'idiom'];
 export const CJK = /^[㐀-䶿一-鿿豈-﫿]{1,12}$/;
 
@@ -111,6 +113,48 @@ export async function callClaude({ apiKey, model, system, user, maxTokens, brows
   }
   const data = await res.json();
   return (data.content || []).filter((c) => c.type === 'text').map((c) => c.text).join('');
+}
+
+// OpenAI 的模型會先思考再回答，思考用掉的 token 也算在上限裡，所以上限要多留一倍
+export async function callOpenAI({ apiKey, model, system, user, maxTokens }) {
+  let res;
+  try {
+    res = await fetch(OPENAI_URL, {
+      method: 'POST',
+      headers: { authorization: `Bearer ${apiKey}`, 'content-type': 'application/json' },
+      body: JSON.stringify({
+        model: model || DEFAULT_OPENAI_MODEL,
+        reasoning_effort: 'low',
+        max_completion_tokens: maxTokens * 2,
+        messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
+      }),
+    });
+  } catch (e) {
+    throw new EngineError('network', 0, String(e));
+  }
+  if (!res.ok) {
+    const detail = await res.text().catch(() => '');
+    let kind = 'server';
+    if (res.status === 401 || res.status === 403) kind = 'apikey';
+    // 429 可能是額度用完，也可能只是暫時太忙
+    else if (res.status === 429) kind = /insufficient_quota|billing|quota/i.test(detail) ? 'credit' : 'busy';
+    else if (res.status === 503) kind = 'busy';
+    throw new EngineError(kind, res.status, detail.slice(0, 200));
+  }
+  const data = await res.json();
+  const content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+  return typeof content === 'string' ? content : '';
+}
+
+// 用金鑰的開頭判斷是哪一家：sk-ant- 是 Claude，其他是 OpenAI
+export const providerOf = (apiKey) => (/^sk-ant-/.test(String(apiKey || '').trim()) ? 'anthropic' : 'openai');
+
+// models：{ anthropic, openai }，沒填就用預設
+// provider 沒指定就看金鑰判斷
+export function callModel({ apiKey, provider, models = {}, system, user, maxTokens, browser = false }) {
+  return (provider || providerOf(apiKey)) === 'openai'
+    ? callOpenAI({ apiKey, model: models.openai, system, user, maxTokens })
+    : callClaude({ apiKey, model: models.anthropic, system, user, maxTokens, browser });
 }
 
 // ───────── 教育部辭典 ─────────
@@ -256,11 +300,11 @@ export function entryPrompt(word, age, dict) {
 }
 
 // 產生一個字詞的完整內容；內容不完整或格式錯會再請 AI 重寫一次
-export async function buildEntry({ word, age, apiKey, model, env = {}, browser = false }) {
+export async function buildEntry({ word, age, apiKey, provider, models, env = {}, browser = false }) {
   const dict = await lookupDict(word, env);
   const prompt = entryPrompt(word, age, dict);
   const ask = async (p) => {
-    const text = await callClaude({ apiKey, model, system: SYSTEM_ENTRY, user: p, maxTokens: 3000, browser });
+    const text = await callModel({ apiKey, provider, models, system: SYSTEM_ENTRY, user: p, maxTokens: 3000, browser });
     try { return normalizeEntry(parseJson(text), word, dict); } catch { return null; }
   };
   let entry = await ask(prompt);
@@ -274,9 +318,9 @@ export async function buildEntry({ word, age, apiKey, model, env = {}, browser =
   return entry;
 }
 
-export async function buildFeedback({ word, sentence, age, apiKey, model, browser = false }) {
+export async function buildFeedback({ word, sentence, age, apiKey, provider, models, browser = false }) {
   const user = `目標字詞：${word}\n學生年齡：${AGES[age] || AGES['10-11']}\n學生的句子：${sentence}`;
-  const text = await callClaude({ apiKey, model, system: SYSTEM_SENTENCE, user, maxTokens: 600, browser });
+  const text = await callModel({ apiKey, provider, models, system: SYSTEM_SENTENCE, user, maxTokens: 600, browser });
   let raw;
   try { raw = parseJson(text); } catch { throw new EngineError('server', 0, 'bad json'); }
   return { ok: raw.ok === true, praise: str(raw.praise), note: str(raw.note), suggestion: str(raw.suggestion) };

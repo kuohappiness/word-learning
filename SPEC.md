@@ -1,4 +1,4 @@
-# 生詞造句 App 說明書（v0.3）
+# 生詞造句 App 說明書（v0.4）
 
 > 設計稿（可點擊操作）：https://claude.ai/artifact/EBKrAfnb2PJapZg1rR1fys
 > 本文件是開發依據。設計稿與本文件不一致時，以本文件為準，並回頭更新設計稿。
@@ -272,12 +272,12 @@
 | 層 | 選擇 |
 |---|---|
 | 前端 | PWA（HTML／CSS／JS），部署在 GitHub Pages |
-| AI | Claude Haiku 5.5（每百萬 token：讀入 $0.10、產出 $0.50） |
-| 呼叫方式 | App 直接從瀏覽器呼叫 Claude API |
+| AI | Claude Haiku 5.5 或 OpenAI GPT-6 Luna（兩者每百萬 token：讀入 $0.10、產出 $0.50）；依家長貼的金鑰是哪一家決定，編寫規則共用 |
+| 呼叫方式 | App 直接從瀏覽器呼叫 Claude API 或 OpenAI API |
 | API 金鑰 | 家長在每台裝置的「我的」貼上同一組金鑰，只存在那台裝置，**金鑰不進 repo** |
 | 快取 | 查過的字詞內容存在裝置本機；同一台裝置第二次查就直接讀取 |
 | 個人資料 | 生詞本、錯題、星星、等級存在裝置本機（localStorage），不收集個資，不需要帳號 |
-| 費用上限 | Claude Console 預先儲值少量額度 |
+| 費用上限 | 預先儲值少量額度；帳戶已有餘額時，替這組金鑰所在的 workspace／project 設每月上限 |
 | 辭典 | 教育部國語辭典資料（注音、原文釋義），App 直接查詢；查不到就不顯示注音 |
 | 朗讀 | Web Speech API |
 

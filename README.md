@@ -26,11 +26,23 @@
 2. **Source** 選 **Deploy from a branch**，**Branch** 選 `main`、資料夾選 `/ (root)`，按 **Save**。
 3. 等幾分鐘，網址會是 `https://kuohappiness.github.io/word-learning/`。
 
-### 2. 申請一組 Claude API 金鑰
+### 2. 準備一組 API 金鑰（Claude 或 OpenAI 都可以）
+
+App 會看金鑰的開頭自動判斷是哪一家：`sk-ant-` 開頭是 Claude，其他是 OpenAI。兩家擇一即可。
+
+**Claude**
 
 1. 到 https://console.anthropic.com 註冊、登入。
 2. 在 **API Keys** 建立一組金鑰，複製下來（只會顯示一次）。
-3. 在 **Billing** 儲值少量額度，例如 5 美元。儲值多少，最多就只會用掉多少。
+3. 在 **Billing** 儲值少量額度，例如 5 美元。
+
+**OpenAI**
+
+1. 到 https://platform.openai.com 登入。
+2. 建立一組 API 金鑰，複製下來。
+3. 確認 API 帳戶有餘額。API 的費用和 ChatGPT 的訂閱是分開算的。
+
+**已經有金鑰、帳戶裡也有餘額**：建議還是替這個 App 另建一組金鑰，並替它設每月花費上限（Claude 用 workspace 的 spend limit，OpenAI 用 project 的 spend limit）。同一個帳戶的金鑰共用餘額，設了上限，金鑰外流時損失才有限。
 
 ### 3. 每台裝置設定一次
 
@@ -40,7 +52,7 @@
    - 之後要換金鑰，到 App 的「我的」頁面修改。
 3. 加入主畫面：Safari → 分享 → **加入主畫面**；Android Chrome → **安裝應用程式**。
 
-每台裝置都貼**同一組**金鑰即可，費用都從同一筆儲值扣。
+每台裝置都貼**同一組**金鑰即可，費用都從同一個帳戶扣。
 
 ### 4. 確認注音有出現
 
@@ -51,12 +63,14 @@
 ## 金鑰安全
 
 - 金鑰**只存在孩子的裝置上**，不會出現在這個 repo。**絕對不要**把金鑰寫進任何檔案或 commit。
-- 拿到裝置的人可以從瀏覽器裡看到金鑰。家裡自己用風險不高；萬一裝置遺失或金鑰外流，到 Claude Console 的 API Keys 刪掉這組，再建一組新的貼回其他裝置。
-- 費用上限就是儲值的額度。
+- 拿到裝置的人可以從瀏覽器裡看到金鑰。家裡自己用風險不高；萬一裝置遺失或金鑰外流，到 Claude Console 或 OpenAI 後台刪掉這組，再建一組新的貼回其他裝置。
+- 費用上限是帳戶的餘額，或你替這組金鑰所在的 workspace／project 設的每月上限。
 
 ## 費用
 
-- AI 使用 Claude Haiku 5.5。估算一個孩子每週查 60 個詞約 US$0.10（詳見 SPEC.md 第 4 節）。
+- 貼 Claude 金鑰時使用 Claude Haiku 5.5，貼 OpenAI 金鑰時使用 GPT-6 Luna；兩者定價相同（每百萬 token：讀入 $0.10、產出 $0.50）。估算一個孩子每週查 60 個詞約 US$0.10（詳見 SPEC.md 第 4 節）。GPT-6 Luna 回答前會先思考，思考也算產出，實際費用可能略高。
+- 模型可以在 `js/config.js` 的 `model`、`openaiModel` 更換。
+- 字義、例句和測驗題的編寫規則兩家共用；換一家之後，建議先查幾個詞確認內容品質。
 - 查過的字詞會存在裝置上，同一台裝置再查同一個詞不花錢，也可以離線看。
 
 ## 注音來源
@@ -75,7 +89,7 @@ js/app.js               路由、點擊、朗讀
 js/views.js             各個畫面
 js/store.js             本機紀錄、錯題排程、等級、貼紙、API 金鑰
 js/api.js               依模式取得字詞內容
-js/engine.js            查辭典、請 Claude 編寫、整理內容（直接模式與 Worker 共用）
+js/engine.js            查辭典、請 AI（Claude 或 OpenAI）編寫、整理內容（直接模式與 Worker 共用）
 js/demo.js              試用模式的範例字詞
 js/art.js               糰糰、貼紙、圖示
 sw.js                   離線快取
@@ -96,6 +110,8 @@ worker/                 日後推廣用的 Cloudflare Worker
    ```
    （`wrangler deploy` 會自動把 `js/engine.js` 一起打包。）
 3. 把 Worker 網址填進 `js/config.js` 的 `workerUrl`。之後 App 會改成請孩子輸入邀請碼，不再使用裝置上的金鑰。
+
+Worker 目前只接 Claude 金鑰。
 
 ## 還沒做的
 

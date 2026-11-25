@@ -63,7 +63,7 @@ async function handleEntry(body, env, cors) {
   }
   if (await overLimit(env, device)) return json({ error: 'limit' }, 429, cors);
 
-  const entry = await buildEntry({ word, age, apiKey: env.ANTHROPIC_API_KEY, model: env.MODEL, env });
+  const entry = await buildEntry({ word, age, apiKey: env.ANTHROPIC_API_KEY, provider: 'anthropic', models: { anthropic: env.MODEL }, env });
 
   if (env.CACHE) {
     // 好的內容長期保存；查不到、打錯字的結果保存 30 天
@@ -80,7 +80,7 @@ async function handleSentence(body, env, cors) {
   const age = AGES[body.age] ? body.age : '10-11';
   const device = String(body.device || 'anon').slice(0, 64);
   if (await overLimit(env, device)) return json({ error: 'limit' }, 429, cors);
-  const fb = await buildFeedback({ word, sentence, age, apiKey: env.ANTHROPIC_API_KEY, model: env.MODEL });
+  const fb = await buildFeedback({ word, sentence, age, apiKey: env.ANTHROPIC_API_KEY, provider: 'anthropic', models: { anthropic: env.MODEL } });
   return json(fb, 200, cors);
 }
 

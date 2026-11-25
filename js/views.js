@@ -15,8 +15,8 @@ const ERRORS = {
   demo: '現在是試用模式，只能查「迫不及待」和「辨」。家長在「我的」貼上 API 金鑰之後，什麼字詞都能查。',
   invite: '邀請碼不對，請到「我的」重新輸入。',
   apikey: 'API 金鑰不對，請家長到「我的」重新貼上。',
-  credit: 'API 的額度用完了，請家長到 Claude Console 儲值。',
-  busy: 'Claude 現在比較忙，等一下再試一次。',
+  credit: 'API 的額度用完了，請家長儲值。',
+  busy: '糰糰現在比較忙，等一下再試一次。',
   limit: '今天的查詢次數用完了，明天再來吧！',
   network: '連不上網路，檢查一下網路再試一次。',
   server: '糰糰暫時查不到，請稍後再試一次。',
@@ -89,7 +89,7 @@ export function viewSetup({ worker }) {
   const ages = AGES.map((a) => `<label class="agebtn"><input type="radio" name="age" value="${a.id}"><span class="agebox">${a.label}<small>${a.sub}</small></span></label>`).join('');
   const access = worker
     ? '<label class="f-t" for="invite">邀請碼</label><input id="invite" name="invite" type="text" class="text" autocomplete="off" required>'
-    : `<label class="f-t" for="apikey">API 金鑰（家長設定，也可以之後在「我的」貼上）</label>${KEY_INPUT('', 'sk-ant-…')}`;
+    : `<label class="f-t" for="apikey">API 金鑰（家長設定，也可以之後在「我的」貼上）</label>${KEY_INPUT('', 'sk-…')}`;
   return `
   <div class="setup-head">${mascot('plain', 96)}<h1 class="page">嗨！我是糰糰</h1><p class="muted">選好年紀，我會用你聽得懂的方式解釋。</p></div>
   <form data-form="setup" class="card setup">

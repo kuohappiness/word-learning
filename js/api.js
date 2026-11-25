@@ -1,6 +1,6 @@
 // 取得字詞內容與造句回饋。三種模式：
 //   worker：config.js 填了 workerUrl → 經過 Cloudflare Worker（日後推廣時用）
-//   direct：裝置上存了 API 金鑰 → App 直接呼叫 Claude（一兩個孩子自己用）
+//   direct：裝置上存了 API 金鑰 → App 直接呼叫 Claude 或 OpenAI（一兩個孩子自己用）
 //   demo：都沒有 → 只能查內建範例
 import { DEMO } from './demo.js';
 import { buildEntry, buildFeedback, EngineError } from './engine.js';
@@ -17,6 +17,8 @@ export function modeOf(cfg, settings) {
   if (settings.apiKey) return 'direct';
   return 'demo';
 }
+
+const modelsOf = (cfg) => ({ anthropic: cfg.model, openai: cfg.openaiModel });
 
 function base(cfg) {
   return String(cfg.workerUrl || '').replace(/\/+$/, '');
@@ -58,7 +60,7 @@ export async function fetchEntry(word, settings, cfg) {
     return post(cfg, '/api/entry', { word, age: settings.age, device: settings.device }, settings.invite);
   }
   if (mode === 'direct') {
-    return direct(() => buildEntry({ word, age: settings.age, apiKey: settings.apiKey, model: cfg.model, browser: true }));
+    return direct(() => buildEntry({ word, age: settings.age, apiKey: settings.apiKey, models: modelsOf(cfg), browser: true }));
   }
   const d = DEMO[word];
   if (d) return JSON.parse(JSON.stringify(d));
@@ -71,7 +73,7 @@ export async function fetchFeedback(word, sentence, settings, cfg) {
     return post(cfg, '/api/sentence', { word, sentence, age: settings.age, device: settings.device }, settings.invite);
   }
   if (mode === 'direct') {
-    return direct(() => buildFeedback({ word, sentence, age: settings.age, apiKey: settings.apiKey, model: cfg.model, browser: true }));
+    return direct(() => buildFeedback({ word, sentence, age: settings.age, apiKey: settings.apiKey, models: modelsOf(cfg), browser: true }));
   }
   return {
     ok: true,
