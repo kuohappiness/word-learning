@@ -3,18 +3,18 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { buildEntry, lookupDict, normalizeEntry, shardOf, providerOf } from '../js/engine.js';
+import { buildEntry, buildCard, buildQuiz, lookupDict, normalizeEntry, shardOf, providerOf, lookalikeZhuyin, confusablesOf } from '../js/engine.js';
 import { DEMO } from '../js/demo.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
-const DICT = { dictBase: 'data/revised/' };
+const DICT = { dictBase: 'data/revised/', confusablesUrl: 'data/confusables.json' };
 
 // 假的網路：本機辭典讀檔案，AI 回傳指定內容，其他一律失敗
 function mockFetch(aiReply, calls = []) {
   globalThis.fetch = async (url, opts = {}) => {
     url = String(url);
     calls.push(url);
-    if (url.startsWith('data/revised/')) {
+    if (url.startsWith('data/')) {
       try {
         const body = await readFile(root + url, 'utf8');
         return new Response(body, { status: 200 });
@@ -97,4 +97,42 @@ test('OpenAI 金鑰走 OpenAI', async () => {
 test('單一個字一定是字卡', () => {
   const e = normalizeEntry({ type: 'word', meaning: 'x' }, '辨', null);
   assert.equal(e.type, 'char');
+});
+
+test('學習卡只呼叫一次 AI，小測驗另外出題且會看到例句', async () => {
+  const calls = mockFetch(goodReply('迫不及待'));
+  const card = await buildCard({ word: '迫不及待', age: '10-11', apiKey: 'sk-ant-test', env: DICT });
+  assert.equal(calls.filter((u) => u.includes('anthropic')).length, 1);
+  assert.equal(card.meaning.length > 0, true);
+  let prompt = '';
+  mockFetch((body) => { prompt = body.messages.at(-1).content; return goodReply('迫不及待'); });
+  const quiz = await buildQuiz({ entry: card, age: '10-11', apiKey: 'sk-ant-test', env: DICT });
+  assert.ok(quiz.quiz_usage && quiz.quiz_compare);
+  assert.match(prompt, /例句 1：收到外婆寄來的包裹/);
+});
+
+test('查畫面時先拿到辭典注音', async () => {
+  mockFetch(goodReply('迫不及待'));
+  let seen = null;
+  await buildCard({ word: '迫不及待', age: '10-11', apiKey: 'sk-ant-test', env: DICT, onDict: (d) => { seen = d; } });
+  assert.equal(seen.readings[0].bopomofo, 'ㄆㄛˋ ㄅㄨˋ ㄐㄧˊ ㄉㄞˋ');
+});
+
+test('易混清單：查和察', async () => {
+  mockFetch('');
+  assert.deepEqual(await confusablesOf('查', DICT), ['察']);
+  let prompt = '';
+  mockFetch((body) => { prompt = body.messages.at(-1).content; return JSON.stringify({ type: 'char', meaning: '仔細看、檢驗。', examples: ['a', 'b'] }); });
+  await buildCard({ word: '查', age: '10-11', apiKey: 'sk-ant-test', env: DICT });
+  assert.match(prompt, /容易搞混：察/);
+});
+
+test('形近字卡片的注音來自辭典，多音字依常用詞判斷', async () => {
+  mockFetch('');
+  assert.equal(await lookalikeZhuyin('辯', '辯論', DICT), 'ㄅㄧㄢˋ');
+  assert.equal(await lookalikeZhuyin('瓣', '花瓣', DICT), 'ㄅㄢˋ');
+  assert.equal(await lookalikeZhuyin('辮', '辮子', DICT), 'ㄅㄧㄢˋ');
+  assert.equal(await lookalikeZhuyin('行', '銀行', DICT), 'ㄏㄤˊ');
+  // 多音字又沒有常用詞可以判斷：不標
+  assert.equal(await lookalikeZhuyin('行', '', DICT), null);
 });

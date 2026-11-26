@@ -99,6 +99,7 @@ js/api.js               依模式取得字詞內容
 js/engine.js            查辭典、請 AI（Claude 或 OpenAI）編寫、整理內容（直接模式與 Worker 共用）
 js/demo.js              試用模式的範例字詞
 data/revised/           教育部辭典資料（注音、釋義），由 tools/build-dict.py 產生
+data/confusables.json   容易搞混的字詞清單（可以直接增加），比一比和記憶錨點優先用它
 scripts/check-secrets.sh  金鑰檢查（commit 前和 GitHub 上都會跑）
 tests/                  程式測試：node --test tests/*.test.mjs
 js/art.js               糰糰、貼紙、圖示
@@ -125,7 +126,7 @@ Worker 目前只接 Claude 金鑰。
 
 ## 維護
 
-- 每次改程式都要把 `sw.js` 的 `VERSION` 加一（目前 `wl-v4`），裝置才會拿到新版。
+- 每次改程式都要把 `sw.js` 的 `VERSION` 加一（目前 `wl-v5`），裝置才會拿到新版。
 - 改完執行 `node --test tests/*.test.mjs` 確認測試通過。
 
 ## 還沒做的

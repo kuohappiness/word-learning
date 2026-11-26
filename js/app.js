@@ -1,8 +1,8 @@
 // 主程式：路由、事件、朗讀。畫面在 views.js，資料在 store.js。
 import * as V from './views.js';
 import * as S from './store.js';
-import { fetchEntry, fetchFeedback, modeOf } from './api.js';
-import { providerOf } from './engine.js';
+import { fetchEntry, fetchQuiz, fetchFeedback, modeOf } from './api.js';
+import { providerOf, hasQuiz } from './engine.js';
 
 const cfg = window.WL_CONFIG || {};
 const app = document.getElementById('app');
@@ -89,9 +89,17 @@ async function withEntry(word, cb) {
   }
   const myHash = location.hash;
   paint(V.viewLoading());
+  // 查完辭典就先把大字和注音放上去，AI 寫好再換成完整的學習卡
+  const onDict = (dict) => {
+    if (location.hash !== myHash) return;
+    const rs = (dict && dict.readings) || [];
+    // 單一個字有好幾個讀音時先不標，等學習卡列出每個讀音
+    const zy = rs.length && ([...word].length > 1 || rs.length === 1) ? rs[0].bopomofo : '';
+    paint(V.viewLoading({ word, zhuyin: state.settings.zhuyin ? zy : '' }));
+  };
   let entry;
   try {
-    entry = await fetchEntry(word, state.settings, cfg);
+    entry = await fetchEntry(word, state.settings, cfg, onDict);
   } catch (e) {
     if (location.hash === myHash) paint(V.viewError(e.code || 'network', word));
     return;
@@ -100,11 +108,50 @@ async function withEntry(word, cb) {
     entry.age = entry.age || age;
     S.entrySet(word, age, entry);
     current = entry;
+    prepareQuiz(entry).catch(() => {}); // 孩子看學習卡的時候，在背景出小測驗
   }
   if (location.hash === myHash) cb(entry);
 }
 
-const hasQuiz = (e) => !!(e.quiz_usage && e.quiz_usage.correct && e.quiz_usage.wrong);
+// ───────── 小測驗在背景準備（直接模式）─────────
+const quizJobs = new Map();
+const canMakeQuiz = () => mode() === 'direct';
+
+function prepareQuiz(entry) {
+  if (hasQuiz(entry)) return Promise.resolve(entry);
+  if (!canMakeQuiz()) return Promise.reject(new Error('no quiz'));
+  const age = entry.age || state.settings.age;
+  const key = `${age}|${entry.word}`;
+  if (!quizJobs.has(key)) {
+    const job = fetchQuiz(entry, state.settings, cfg)
+      .then((quiz) => {
+        Object.assign(entry, quiz);
+        S.entrySet(entry.word, age, entry);
+        quizJobs.delete(key);
+        return entry;
+      })
+      .catch((e) => {
+        quizJobs.delete(key);
+        throw e;
+      });
+    quizJobs.set(key, job);
+  }
+  return quizJobs.get(key);
+}
+
+// 需要小測驗的畫面：小測驗還沒好就先顯示「出題中」，好了再畫
+function withQuiz(word, cb) {
+  withEntry(word, (entry) => {
+    if (!WORD_TYPES.includes(entry.type)) { location.replace(`#/w/${enc(word)}`); return; }
+    if (hasQuiz(entry)) { cb(entry); return; }
+    if (!canMakeQuiz()) { location.replace(`#/w/${enc(word)}`); return; }
+    const myHash = location.hash;
+    paint(V.viewQuizLoading(entry));
+    prepareQuiz(entry)
+      .then(() => { if (location.hash === myHash) cb(entry); })
+      .catch((e) => { if (location.hash === myHash) paint(V.viewError(e.code || 'server', word)); });
+  });
+}
 
 function pickItems(entry, attempt) {
   const qc = entry.quiz_compare;
@@ -154,13 +201,12 @@ function routeCard(word) {
     if (!WORD_TYPES.includes(entry.type)) { paint(V.viewNotWord(entry, word)); return; }
     S.touchWord(state, entry.word, entry.type);
     persist();
-    paint(V.viewCard({ entry, settings: state.settings }));
+    paint(V.viewCard({ entry, settings: state.settings, canQuiz: hasQuiz(entry) || canMakeQuiz() }));
   });
 }
 
 function routeQ1(word) {
-  withEntry(word, (entry) => {
-    if (!WORD_TYPES.includes(entry.type) || !hasQuiz(entry)) { location.replace(`#/w/${enc(word)}`); return; }
+  withQuiz(word, (entry) => {
     ensureSession(entry);
     const nextHref = session.q2Items.length === 2
       ? `#/q2/${enc(word)}`
@@ -170,7 +216,7 @@ function routeQ1(word) {
 }
 
 function routeQ2(word) {
-  withEntry(word, (entry) => {
+  withQuiz(word, (entry) => {
     ensureSession(entry);
     if (session.q2Items.length !== 2) { location.replace(`#/q1/${enc(word)}`); return; }
     paint(V.viewQuiz2({ entry, session }));
@@ -178,7 +224,7 @@ function routeQ2(word) {
 }
 
 function routeOk(word) {
-  withEntry(word, (entry) => {
+  withQuiz(word, (entry) => {
     ensureSession(entry);
     if (!session.rewarded) {
       session.rewarded = true;
@@ -192,7 +238,7 @@ function routeOk(word) {
 }
 
 function routeNg(word) {
-  withEntry(word, (entry) => {
+  withQuiz(word, (entry) => {
     ensureSession(entry);
     if (session.q2Items.length !== 2) { location.replace(`#/w/${enc(word)}`); return; }
     paint(V.viewWrong({ entry, session }));
@@ -217,13 +263,15 @@ function routeReviewQ() {
   if (!rs) { location.replace('#/review'); return; }
   if (rs.i >= rs.list.length) { paint(V.viewReviewDone({ rs }), 'review'); return; }
   const word = rs.list[rs.i];
+  const skip = () => { rs.i += 1; rs.picked = null; routeReviewQ(); };
   withEntry(word, (entry) => {
-    if (!WORD_TYPES.includes(entry.type) || !hasQuiz(entry)) {
-      rs.i += 1;
-      routeReviewQ();
-      return;
-    }
-    paint(V.viewReviewQ({ entry, rs }));
+    if (!WORD_TYPES.includes(entry.type)) { skip(); return; }
+    if (hasQuiz(entry)) { paint(V.viewReviewQ({ entry, rs })); return; }
+    if (!canMakeQuiz()) { skip(); return; }
+    paint(V.viewQuizLoading(entry));
+    prepareQuiz(entry)
+      .then(() => { if (location.hash === '#/rq' && rs.list[rs.i] === word) paint(V.viewReviewQ({ entry, rs })); })
+      .catch(() => { if (location.hash === '#/rq' && rs.list[rs.i] === word) skip(); });
   });
 }
 
