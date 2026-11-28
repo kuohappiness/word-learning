@@ -1,0 +1,56 @@
+{
+  "unit": 33,
+  "page": 36,
+  "chars": {
+    "汗": [
+      { "book": "ㄏㄢˋ", "senses": [
+        { "gloss": "從皮膚毛孔流出來的水分", "words": ["流汗", "汗水"] },
+        { "gloss": "古時候指史書", "words": ["汗青"] },
+        { "gloss": "比喻在戰場上立下的功勞", "words": ["汗馬功勞"] }
+      ]},
+      { "book": "ㄏㄢˊ", "senses": [
+        { "gloss": "古時候中國西方、北方民族對君主的稱呼", "words": ["可汗"] }
+      ]}
+    ],
+    "紅": [
+      { "book": "ㄏㄨㄥˊ", "senses": [
+        { "gloss": "像血一樣的顏色", "words": ["紅花綠葉"] },
+        { "gloss": "受很多人歡迎的", "words": ["走紅", "紅星"] },
+        { "gloss": "成功、出名", "words": ["一炮而紅"] },
+        { "gloss": "賺到的利潤", "words": ["分紅", "紅利"] },
+        { "gloss": "熱鬧繁華的人世間", "words": ["紅塵"] }
+      ]},
+      { "book": "ㄍㄨㄥ", "senses": [
+        { "gloss": "縫紉、刺繡等針線工作", "words": ["女紅"] }
+      ]}
+    ],
+    "荷": [
+      { "book": "ㄏㄜˊ", "senses": [
+        { "gloss": "夏天開花的水生植物，花有紅、白等顏色", "words": ["荷花"] }
+      ]},
+      { "book": "ㄏㄜˋ", "senses": [
+        { "gloss": "用肩膀扛著", "words": ["荷鋤"] },
+        { "gloss": "承擔、負擔", "words": ["負荷", "電荷"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "紅", "book": "ㄏㄨㄥˊ", "what": "義項「借指美人」與例詞「紅顏薄命」", "reason": "內容消極，不適合兒少" },
+    { "char": "荷", "book": "ㄏㄜˋ", "what": "例詞「荷槍」", "reason": "和武器有關，不收" }
+  ],
+  "practice": [
+    { "type": "word", "char": "荷", "word": "荷花" },
+    { "type": "word", "char": "汗", "word": "流汗" },
+    { "type": "word", "char": "荷", "word": "荷鋤" },
+    { "type": "word", "char": "紅", "word": "紅利" },
+    { "type": "sentence", "char": "紅", "word": "紅腫", "text": "蚊子叮過的地方又紅腫又癢。" },
+    { "type": "sentence", "char": "汗", "word": "可汗", "text": "古時候西域的民族稱君主為可汗。" },
+    { "type": "sentence", "char": "荷", "word": "電荷", "text": "電子帶負電荷。" },
+    { "type": "sentence", "char": "汗", "word": "汗水", "text": "球賽結束，大家的衣服都被汗水溼透了。" },
+    { "type": "sentence", "char": "汗", "word": "汗牛充棟", "text": "這座圖書館的藏書汗牛充棟。" },
+    { "type": "pick", "char": "汗", "word": "汗流浹背", "text": "大熱天搬完書，他累得汗流浹背。" },
+    { "type": "pick", "char": "荷", "word": "荷包蛋", "text": "早餐吃了一個荷包蛋。" },
+    { "type": "pick", "char": "荷", "word": "負荷", "text": "書包太重，會增加背部的負荷。" },
+    { "type": "pick", "char": "紅", "word": "女紅", "text": "奶奶年輕時很會做女紅。" }
+  ]
+}

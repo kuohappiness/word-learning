@@ -1,0 +1,47 @@
+{
+  "unit": 38,
+  "page": 41,
+  "chars": {
+    "卷": [
+      { "book": "ㄐㄩㄢˋ", "senses": [
+        { "gloss": "可以捲起來的書畫", "words": ["畫卷", "卷軸"] },
+        { "gloss": "書", "words": ["手不釋卷", "開卷有益"] },
+        { "gloss": "考試用的紙", "words": ["試卷", "考卷", "答案卷"] },
+        { "gloss": "機關保存的文件", "words": ["卷宗"] },
+        { "gloss": "計算書籍、字畫的單位", "words": ["萬卷"] }
+      ]},
+      { "book": "ㄐㄩㄢˇ", "senses": [
+        { "gloss": "把東西彎轉成圓筒形，同「捲」", "words": ["卷土重來"] },
+        { "gloss": "捲成圓筒形的東西", "words": ["髮卷"] }
+      ]},
+      { "book": "ㄑㄩㄢˊ", "senses": [
+        { "gloss": "彎曲的", "words": ["卷曲", "卷髮"] }
+      ]}
+    ],
+    "券": [
+      { "book": "ㄑㄩㄢˋ", "senses": [
+        { "gloss": "有價值、可以兌換或買賣的票據", "words": ["債券", "禮券"] },
+        { "gloss": "當作憑證的票", "words": ["入場券", "優待券", "點券"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "卷", "book": "ㄐㄩㄢˋ", "what": "義項「書的分篇」與例詞「上卷」", "reason": "辭典沒有這個詞" },
+    { "char": "卷", "book": "ㄐㄩㄢˇ", "what": "例詞「卷尺」", "reason": "辭典寫作「捲尺」，改用「卷土重來」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "券", "word": "獎券" },
+    { "type": "word", "char": "卷", "word": "卷髮" },
+    { "type": "word", "char": "卷", "word": "考卷" },
+    { "type": "word", "char": "卷", "word": "卷宗" },
+    { "type": "sentence", "char": "券", "word": "入場券", "text": "他拿到一張棒球比賽的免費入場券。" },
+    { "type": "sentence", "char": "卷", "word": "手不釋卷", "text": "哥哥買了一本恐龍圖鑑，整天手不釋卷。" },
+    { "type": "sentence", "char": "卷", "word": "髮卷", "text": "媽媽用髮卷把頭髮捲起來。" },
+    { "type": "sentence", "char": "卷", "word": "試卷", "text": "老師把改好的試卷發回給我們。" },
+    { "type": "sentence", "char": "券", "word": "優待券", "text": "阿姨送我一張遊樂園的優待券。" },
+    { "type": "pick", "char": "卷", "word": "卷土重來", "text": "這次輸了沒關係，明年再卷土重來。" },
+    { "type": "sentence", "char": "券", "word": "禮券", "text": "爺爺生日，我們送他一張書店禮券。" },
+    { "type": "pick", "char": "卷", "word": "卷曲", "text": "小狗的毛又短又卷曲。" },
+    { "type": "pick", "char": "卷", "word": "開卷有益", "text": "開卷有益，多讀書總有收穫。" }
+  ]
+}

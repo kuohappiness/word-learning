@@ -1,0 +1,57 @@
+{
+  "unit": 9,
+  "page": 12,
+  "chars": {
+    "埋": [
+      { "book": "ㄇㄞˊ", "senses": [
+        { "gloss": "把東西放進土裡蓋起來", "words": ["埋葬", "埋藏"] },
+        { "gloss": "被忽略、沒被發現", "words": ["埋沒"] },
+        { "gloss": "藏在不容易發現的地方", "words": ["埋伏"] }
+      ]},
+      { "book": "ㄇㄢˊ", "senses": [
+        { "gloss": "抱怨、責怪別人", "words": ["埋怨"] }
+      ]}
+    ],
+    "靡": [
+      { "book": "ㄇㄧˊ", "senses": [
+        { "gloss": "浪費", "words": ["靡費"] },
+        { "gloss": "爛掉", "note": "通「糜」", "words": ["靡爛"] }
+      ]},
+      { "book": "ㄇㄧˇ", "senses": [
+        { "gloss": "順勢倒下", "words": ["望風披靡", "所向披靡"] },
+        { "gloss": "沒精神、提不起勁", "words": ["委靡"] },
+        { "gloss": "奢侈", "words": ["奢靡", "浮靡"] }
+      ]}
+    ],
+    "否": [
+      { "book": "ㄈㄡˇ", "senses": [
+        { "gloss": "表示不同意", "words": ["否認", "否定"] },
+        { "gloss": "放在句子裡表示詢問", "words": ["可否", "是否"] }
+      ]},
+      { "book": "ㄆㄧˇ", "senses": [
+        { "gloss": "壞的、不順的", "words": ["否極泰來"] },
+        { "gloss": "批評、說人不好", "words": ["臧否人物"] }
+      ]}
+    ],
+    "彷": [
+      { "book": "ㄈㄤˇ", "senses": [
+        { "gloss": "好像", "words": ["彷彿"] }
+      ]},
+      { "book": "ㄆㄤˊ", "senses": [
+        { "gloss": "走來走去、拿不定主意", "note": "同「徬徨」", "words": ["彷徨"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "靡", "word": "奢靡" },
+    { "type": "word", "char": "埋", "word": "埋葬" },
+    { "type": "word", "char": "否", "word": "否定" },
+    { "type": "word", "char": "彷", "word": "彷彿" },
+    { "type": "sentence", "char": "否", "word": "否決", "text": "班上有一半同學否決了這個提案。" },
+    { "type": "sentence", "char": "埋", "word": "埋頭苦幹", "text": "姊姊每天埋頭苦幹，準備會考。" },
+    { "type": "sentence", "char": "埋", "word": "埋怨", "text": "遇到困難時，他從不埋怨別人。" },
+    { "type": "sentence", "char": "彷", "word": "彷徨", "text": "面對選社團，他一時感到很彷徨。" },
+    { "type": "pick", "char": "否", "word": "否極泰來", "text": "別灰心，否極泰來，好事就要來了。" },
+    { "type": "odd", "char": "否", "words": ["可否", "是否", "否認", "臧否人物"] }
+  ]
+}

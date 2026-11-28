@@ -1,0 +1,53 @@
+{
+  "unit": 25,
+  "page": 28,
+  "chars": {
+    "更": [
+      { "book": "ㄍㄥ", "senses": [
+        { "gloss": "改變、換", "words": ["更改", "更動", "更正"] },
+        { "gloss": "古代夜間的計時單位", "words": ["三更半夜"] }
+      ]},
+      { "book": "ㄍㄥˋ", "senses": [
+        { "gloss": "程度更深一層", "words": ["更加", "更好"] },
+        { "gloss": "再", "words": ["更上一層樓"] }
+      ]},
+      { "book": "ㄐㄧㄥ", "senses": [
+        { "gloss": "經歷、經過", "words": ["少不更事"] }
+      ]}
+    ],
+    "蛤": [
+      { "book": "ㄍㄜˊ", "senses": [
+        { "gloss": "有兩片殼、住在淺海沙裡的貝類", "words": ["文蛤", "蛤蜊"] }
+      ]},
+      { "book": "ㄏㄚˊ", "senses": [
+        { "gloss": "青蛙、蟾蜍一類的動物", "words": ["蛤蟆"] }
+      ]}
+    ],
+    "觀": [
+      { "book": "ㄍㄨㄢ", "senses": [
+        { "gloss": "看", "words": ["觀賞", "觀光", "參觀"] },
+        { "gloss": "看到的景象", "words": ["奇觀", "景觀"] },
+        { "gloss": "對事情的看法", "words": ["觀念", "人生觀"] }
+      ]},
+      { "book": "ㄍㄨㄢˋ", "senses": [
+        { "gloss": "道士修行的地方", "words": ["道觀"] },
+        { "gloss": "高樓或樓上的建築", "words": [] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "觀", "word": "參觀" },
+    { "type": "word", "char": "蛤", "word": "文蛤" },
+    { "type": "word", "char": "更", "word": "更動" },
+    { "type": "word", "char": "更", "word": "更正" },
+    { "type": "sentence", "char": "更", "word": "更加", "text": "讀了這本書以後，我更加喜歡大自然。" },
+    { "type": "sentence", "char": "觀", "word": "景觀", "text": "阿里山的自然景觀很美，吸引許多遊客。" },
+    { "type": "sentence", "char": "蛤", "word": "蛤蟆", "text": "我們在池塘邊看見一隻蛤蟆。" },
+    { "type": "sentence", "char": "觀", "word": "觀察", "text": "老師先觀察大家的狀況，再給建議。" },
+    { "type": "pick", "char": "更", "word": "三更半夜", "text": "三更半夜不要大聲說話，會吵到鄰居。" },
+    { "type": "pick", "char": "觀", "word": "道觀", "text": "山腰上有一座安靜的道觀。" }
+  ],
+  "skipped": [
+    { "char": "更", "book": "ㄍㄥ", "what": "例詞「少不更事」", "reason": "書上讀 ㄍㄥ，辭典讀 ㄐㄧㄥ，以辭典為主，改放 ㄐㄧㄥ" }
+  ]
+}

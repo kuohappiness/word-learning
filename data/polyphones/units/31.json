@@ -1,0 +1,56 @@
+{
+  "unit": 31,
+  "page": 34,
+  "chars": {
+    "嚇": [
+      { "book": "ㄏㄜˋ", "senses": [
+        { "gloss": "用威脅的方法逼別人", "words": ["恐嚇"] }
+      ]},
+      { "book": "ㄒㄧㄚˋ", "senses": [
+        { "gloss": "讓人害怕", "words": ["嚇了一跳", "嚇唬"] },
+        { "gloss": "害怕、受到驚擾", "words": ["驚嚇"] }
+      ]}
+    ],
+    "好": [
+      { "book": "ㄏㄠˇ", "senses": [
+        { "gloss": "美好、良善的", "words": ["好人", "花好月圓"] },
+        { "gloss": "感情親密、和睦", "words": ["友好", "好朋友"] },
+        { "gloss": "容易、方便", "words": ["好辦"] },
+        { "gloss": "很、非常", "words": ["好久", "好厲害"] }
+      ]},
+      { "book": "ㄏㄠˋ", "senses": [
+        { "gloss": "喜愛、喜歡", "words": ["好客", "好奇"] }
+      ]}
+    ],
+    "合": [
+      { "book": "ㄏㄜˊ", "senses": [
+        { "gloss": "閉起來", "words": ["合眼", "合攏"] },
+        { "gloss": "聚在一起", "words": ["合力", "集合", "合辦"] },
+        { "gloss": "環繞、圍起來", "words": ["合抱"] },
+        { "gloss": "全部、總共", "words": ["合計", "合家歡"] },
+        { "gloss": "符合標準", "words": ["合格", "合法"] }
+      ]},
+      { "book": "ㄍㄜˇ", "senses": [
+        { "gloss": "容量單位，一公合是一公升的十分之一", "words": ["公合"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "好", "book": "ㄏㄠˋ", "what": "義項「心裡喜歡的事物」與例詞「各有所好」", "reason": "辭典沒有這個詞" },
+    { "char": "合", "book": "ㄏㄜˊ", "what": "例詞「開合」", "reason": "辭典沒有這個詞" }
+  ],
+  "practice": [
+    { "type": "word", "char": "合", "word": "集合" },
+    { "type": "word", "char": "好", "word": "好久" },
+    { "type": "word", "char": "嚇", "word": "驚嚇" },
+    { "type": "word", "char": "好", "word": "好客" },
+    { "type": "sentence", "char": "好", "word": "好朋友", "text": "週末我和幾個好朋友一起去爬山。" },
+    { "type": "sentence", "char": "嚇", "word": "嚇了一跳", "text": "門突然被風吹開，大家都嚇了一跳。" },
+    { "type": "sentence", "char": "合", "word": "合辦", "text": "這場園遊會由三個班級合辦。" },
+    { "type": "sentence", "char": "好", "word": "好奇", "text": "弟弟很好奇，看到什麼都想問。" },
+    { "type": "pick", "char": "嚇", "word": "恐嚇", "text": "用言語恐嚇同學是不對的行為。" },
+    { "type": "pick", "char": "好", "word": "花好月圓", "text": "中秋節晚上花好月圓，全家一起賞月。" },
+    { "type": "pick", "char": "合", "word": "合攏", "text": "到了晚上，花瓣就慢慢合攏起來。" },
+    { "type": "pick", "char": "合", "word": "公合", "text": "一公合等於一公升的十分之一。" }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "unit": 36,
+  "page": 39,
+  "chars": {
+    "角": [
+      { "book": "ㄐㄧㄠˇ", "senses": [
+        { "gloss": "動物頭上長出的硬角", "words": ["牛角"] },
+        { "gloss": "兩條直線相交形成的角", "words": ["直角"] },
+        { "gloss": "方位、方向", "words": ["東北角"] },
+        { "gloss": "邊緣、角落", "words": ["牆角", "桌角", "角落"] },
+        { "gloss": "比較高下", "words": ["角力", "角逐"] }
+      ]},
+      { "book": "ㄐㄩㄝˊ", "senses": [
+        { "gloss": "戲劇裡的人物、演員", "words": ["主角", "配角", "角色"] },
+        { "gloss": "古代五音「宮、商、角、徵、羽」之一", "words": [] }
+      ]}
+    ],
+    "覺": [
+      { "book": "ㄐㄩㄝˊ", "senses": [
+        { "gloss": "身體感受外界的能力", "words": ["知覺"] },
+        { "gloss": "發現、察覺", "words": ["發覺", "察覺", "驚覺"] },
+        { "gloss": "明白、醒悟", "words": ["覺悟", "覺醒"] },
+        { "gloss": "比別人先明白道理", "words": ["先知先覺"] }
+      ]},
+      { "book": "ㄐㄧㄠˋ", "senses": [
+        { "gloss": "睡眠", "words": ["睡覺", "午覺"] }
+      ]}
+    ],
+    "賈": [
+      { "book": "ㄐㄧㄚˇ", "senses": [
+        { "gloss": "姓", "words": [] }
+      ]},
+      { "book": "ㄍㄨˇ", "senses": [
+        { "gloss": "做買賣的人", "words": ["商賈", "書賈"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "覺", "book": "ㄐㄩㄝˊ", "what": "義項「睡醒」與例詞「大夢初覺」", "reason": "辭典沒有這個詞" },
+    { "char": "角", "book": "ㄐㄧㄠˇ", "what": "例詞「口角」", "reason": "辭典有 ㄐㄧㄠˇ、ㄐㄩㄝˊ 兩種讀法，不適合當練習" }
+  ],
+  "practice": [
+    { "type": "word", "char": "覺", "word": "覺醒" },
+    { "type": "word", "char": "覺", "word": "午覺" },
+    { "type": "word", "char": "角", "word": "主角" },
+    { "type": "word", "char": "角", "word": "角落" },
+    { "type": "sentence", "char": "覺", "word": "察覺", "text": "他太專心看書，沒察覺天已經黑了。" },
+    { "type": "sentence", "char": "角", "word": "冰山一角", "text": "這次發現的問題，只是冰山一角。" },
+    { "type": "sentence", "char": "角", "word": "角落", "text": "教室角落放著一盆綠色植物。" },
+    { "type": "sentence", "char": "覺", "word": "一覺", "text": "睡了一覺之後，他的精神好多了。" },
+    { "type": "pick", "char": "角", "word": "角色", "text": "她在話劇裡扮演小狐狸的角色。" },
+    { "type": "pick", "char": "覺", "word": "覺悟", "text": "經過這次失敗，他覺悟到練習的重要。" },
+    { "type": "pick", "char": "賈", "word": "商賈", "text": "古時候這條街上商賈雲集。" },
+    { "type": "pick", "char": "角", "word": "角逐", "text": "五支隊伍角逐冠軍。" }
+  ]
+}

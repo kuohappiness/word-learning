@@ -1,0 +1,59 @@
+{
+  "unit": 30,
+  "page": 33,
+  "chars": {
+    "喝": [
+      { "book": "ㄏㄜ", "senses": [
+        { "gloss": "把液體吞下去", "words": ["喝茶", "喝水"] }
+      ]},
+      { "book": "ㄏㄜˋ", "senses": [
+        { "gloss": "大聲喊叫", "words": ["喝采", "呼喝"] }
+      ]}
+    ],
+    "和": [
+      { "book": "ㄏㄜˊ", "senses": [
+        { "gloss": "友好", "words": ["和諧", "和好如初"] },
+        { "gloss": "停止爭吵或戰爭", "words": ["和平"] },
+        { "gloss": "溫和、親切", "words": ["和藹可親"] },
+        { "gloss": "溫暖", "words": ["風和日麗", "和風"] },
+        { "gloss": "幾個數加起來的總數", "words": ["總和"] }
+      ]},
+      { "book": "ㄏㄢˋ", "senses": [
+        { "gloss": "與、跟（口語讀音）", "words": [] }
+      ]},
+      { "book": "ㄏㄜˋ", "senses": [
+        { "gloss": "跟著別人的聲音或意見應和", "words": ["唱和", "附和"] }
+      ]},
+      { "book": "ㄏㄨㄛˋ", "senses": [
+        { "gloss": "把東西攪拌混合", "words": ["攪和", "和麵"] }
+      ]},
+      { "book": "˙ㄏㄨㄛ", "senses": [
+        { "gloss": "天氣溫暖", "words": ["暖和"] }
+      ]}
+    ],
+    "哄": [
+      { "book": "ㄏㄨㄥ", "senses": [
+        { "gloss": "很多人同時發出聲音", "words": ["一哄而散", "鬧哄哄"] }
+      ]},
+      { "book": "ㄏㄨㄥˇ", "senses": [
+        { "gloss": "安撫、逗小孩開心", "words": ["哄哄他"] },
+        { "gloss": "說好聽的話騙人", "words": ["連哄帶騙"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "喝", "book": "ㄏㄜ", "what": "例詞「喝酒」", "reason": "和喝酒有關，改用「喝茶、喝水」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "喝", "word": "呼喝" },
+    { "type": "word", "char": "和", "word": "附和" },
+    { "type": "word", "char": "喝", "word": "喝水" },
+    { "type": "word", "char": "哄", "word": "鬧哄哄" },
+    { "type": "sentence", "char": "和", "word": "和局", "text": "這盤棋下到最後是和局。" },
+    { "type": "sentence", "char": "和", "word": "攪和", "text": "有顏色的衣服要分開洗，別攪和在一起。" },
+    { "type": "sentence", "char": "和", "word": "謙和", "text": "王老師待人謙和，學生都喜歡找他聊天。" },
+    { "type": "sentence", "char": "哄", "word": "哄騙", "text": "別相信陌生人的哄騙。" },
+    { "type": "pick", "char": "喝", "word": "喝采", "text": "她跑完最後一圈，觀眾大聲喝采。" },
+    { "type": "odd", "char": "和", "words": ["和平", "和藹可親", "附和", "總和"] }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "unit": 37,
+  "page": 40,
+  "chars": {
+    "倔": [
+      { "book": "ㄐㄩㄝˊ", "senses": [
+        { "gloss": "個性剛強，不輕易屈服", "words": ["倔強"] }
+      ]},
+      { "book": "ㄐㄩㄝˋ", "senses": [
+        { "gloss": "脾氣固執、說話直又不順從", "words": ["倔頭倔腦"] }
+      ]}
+    ],
+    "解": [
+      { "book": "ㄐㄧㄝˇ", "senses": [
+        { "gloss": "看法、見識", "words": ["見解"] },
+        { "gloss": "問題的答案", "words": ["解答", "不得其解"] },
+        { "gloss": "明白、懂得", "words": ["了解", "理解", "諒解"] },
+        { "gloss": "鬆開、除去", "words": ["解開", "解脫", "解渴"] },
+        { "gloss": "分開、剖開", "words": ["分解", "解剖"] },
+        { "gloss": "說明", "words": ["講解", "解釋"] }
+      ]},
+      { "book": "ㄐㄧㄝˋ", "senses": [
+        { "gloss": "押送", "words": ["押解"] },
+        { "gloss": "古代科舉鄉試第一名", "words": ["解元"] }
+      ]},
+      { "book": "ㄒㄧㄝˋ", "senses": [
+        { "gloss": "地名用字，也是姓", "words": [] }
+      ]}
+    ],
+    "假": [
+      { "book": "ㄐㄧㄚˇ", "senses": [
+        { "gloss": "不是真的", "words": ["假牙", "假面具"] },
+        { "gloss": "借用", "words": ["狐假虎威", "假公濟私"] },
+        { "gloss": "如果", "words": ["假若", "假如", "假使"] }
+      ]},
+      { "book": "ㄐㄧㄚˋ", "senses": [
+        { "gloss": "不用上班上學的日子", "words": ["假期", "年假", "放假", "假日"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "倔", "word": "倔強" },
+    { "type": "word", "char": "解", "word": "解渴" },
+    { "type": "word", "char": "假", "word": "年假" },
+    { "type": "word", "char": "假", "word": "假牙" },
+    { "type": "sentence", "char": "解", "word": "不解", "text": "他突然生氣離開，大家都百思不解。" },
+    { "type": "sentence", "char": "倔", "word": "倔強", "text": "她很倔強，跌倒了也不肯哭。" },
+    { "type": "sentence", "char": "解", "word": "解剖", "text": "醫學院的學生要學習解剖。" },
+    { "type": "sentence", "char": "假", "word": "假日", "text": "每逢連續假日，高速公路都會塞車。" },
+    { "type": "sentence", "char": "假", "word": "假扮", "text": "爸爸假扮成聖誕老公公，送禮物給我們。" },
+    { "type": "pick", "char": "假", "word": "假面具", "text": "他戴上假面具，誰也認不出來。" },
+    { "type": "pick", "char": "解", "word": "解除", "text": "颱風走了，警報也解除了。" },
+    { "type": "pick", "char": "解", "word": "押解", "text": "警察押解嫌犯回到警局。" },
+    { "type": "pick", "char": "假", "word": "暑假", "text": "暑假我要去鄉下看外婆。" }
+  ]
+}

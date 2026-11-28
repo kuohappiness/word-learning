@@ -1,0 +1,60 @@
+{
+  "unit": 19,
+  "page": 22,
+  "chars": {
+    "弄": [
+      { "book": "ㄋㄨㄥˋ", "senses": [
+        { "gloss": "拿在手上玩", "words": ["玩弄", "把弄"] },
+        { "gloss": "設法弄清、查明", "words": ["弄清楚"] },
+        { "gloss": "欺騙、捉弄", "words": ["戲弄", "愚弄"] }
+      ]},
+      { "book": "ㄌㄨㄥˋ", "senses": [
+        { "gloss": "巷子", "words": ["巷弄"] }
+      ]}
+    ],
+    "泥": [
+      { "book": "ㄋㄧˊ", "senses": [
+        { "gloss": "水和土混合成的東西", "words": ["泥巴", "泥土"] },
+        { "gloss": "像泥一樣糊糊的東西", "words": ["印泥", "棗泥"] }
+      ]},
+      { "book": "ㄋㄧˋ", "senses": [
+        { "gloss": "固執、放不開", "words": ["拘泥"] }
+      ]}
+    ],
+    "溺": [
+      { "book": "ㄋㄧˋ", "senses": [
+        { "gloss": "被水淹沒", "words": ["溺水"] },
+        { "gloss": "過分喜愛、沉迷其中", "words": ["沉溺", "溺愛"] }
+      ]},
+      { "book": "ㄋㄧㄠˋ", "senses": [
+        { "gloss": "小便", "note": "同「尿」", "words": ["便溺"] }
+      ]}
+    ],
+    "難": [
+      { "book": "ㄋㄢˊ", "senses": [
+        { "gloss": "不容易", "words": ["難關", "困難"] },
+        { "gloss": "不好", "words": ["難聽", "難看", "難吃"] },
+        { "gloss": "不能、免不了", "words": ["難免", "難言之隱"] }
+      ]},
+      { "book": "ㄋㄢˋ", "senses": [
+        { "gloss": "災禍", "words": ["災難", "苦難", "多災多難"] },
+        { "gloss": "責備、質問", "words": ["責難", "非難"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "溺", "book": "ㄋㄧˋ", "what": "例詞「溺斃、溺死」", "reason": "改用語氣較緩和的「溺水」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "弄", "word": "巷弄" },
+    { "type": "word", "char": "泥", "word": "印泥" },
+    { "type": "word", "char": "溺", "word": "溺愛" },
+    { "type": "word", "char": "難", "word": "難看" },
+    { "type": "sentence", "char": "難", "word": "難關", "text": "只要大家一起努力，再大的難關也能度過。" },
+    { "type": "sentence", "char": "難", "word": "災難", "text": "大家一起捐款，幫助受到災難的人。" },
+    { "type": "sentence", "char": "泥", "word": "拘泥", "text": "寫作文不必拘泥於固定的格式。" },
+    { "type": "sentence", "char": "弄", "word": "戲弄", "text": "戲弄同學是不好的行為。" },
+    { "type": "pick", "char": "溺", "word": "沉溺", "text": "放假也不要沉溺在手機遊戲裡。" },
+    { "type": "pick", "char": "弄", "word": "玩弄", "text": "小貓玩弄著毛線球。" }
+  ]
+}

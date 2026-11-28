@@ -1,0 +1,56 @@
+{
+  "unit": 40,
+  "page": 43,
+  "chars": {
+    "教": [
+      { "book": "ㄐㄧㄠ", "senses": [
+        { "gloss": "把知識或技能傳給別人", "words": ["教書"] }
+      ]},
+      { "book": "ㄐㄧㄠˋ", "senses": [
+        { "gloss": "教導、指導", "words": ["教學", "教訓"] },
+        { "gloss": "宗教", "words": ["佛教", "基督教"] },
+        { "gloss": "禮儀、規矩", "words": ["禮教"] }
+      ]}
+    ],
+    "濟": [
+      { "book": "ㄐㄧˋ", "senses": [
+        { "gloss": "渡河", "words": ["同舟共濟"] },
+        { "gloss": "幫助", "words": ["救濟", "濟弱扶傾"] },
+        { "gloss": "有幫助、有益處", "words": ["無濟於事"] }
+      ]},
+      { "book": "ㄐㄧˇ", "senses": [
+        { "gloss": "人很多的樣子", "words": ["人才濟濟"] }
+      ]}
+    ],
+    "禁": [
+      { "book": "ㄐㄧㄣˋ", "senses": [
+        { "gloss": "不准、制止", "words": ["禁令", "禁止"] },
+        { "gloss": "關起來、不讓出入", "words": ["拘禁", "禁閉"] },
+        { "gloss": "顧忌的事", "words": ["百無禁忌"] },
+        { "gloss": "有限制的規定", "words": ["門禁"] },
+        { "gloss": "古代皇帝住的地方", "words": ["禁宮"] }
+      ]},
+      { "book": "ㄐㄧㄣ", "senses": [
+        { "gloss": "承受得住", "words": ["弱不禁風", "不禁"] },
+        { "gloss": "耐用", "words": ["禁穿"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "教", "book": "ㄐㄧㄠˋ", "what": "例詞「教唆」", "reason": "負面用語，不收" }
+  ],
+  "practice": [
+    { "type": "word", "char": "教", "word": "佛教" },
+    { "type": "word", "char": "濟", "word": "救濟" },
+    { "type": "word", "char": "教", "word": "教書" },
+    { "type": "word", "char": "禁", "word": "門禁" },
+    { "type": "sentence", "char": "濟", "word": "經濟", "text": "這幾年小鎮的經濟越來越好。" },
+    { "type": "sentence", "char": "禁", "word": "不禁", "text": "看到這麼美的風景，大家不禁讚嘆。" },
+    { "type": "sentence", "char": "教", "word": "教訓", "text": "你要記住這次的教訓，下次小心一點。" },
+    { "type": "sentence", "char": "濟", "word": "濟助", "text": "這個基金會每年濟助清寒學生。" },
+    { "type": "pick", "char": "濟", "word": "無濟於事", "text": "事情已經發生，後悔也無濟於事。" },
+    { "type": "pick", "char": "禁", "word": "禁不起", "text": "這張紙太薄，禁不起折。" },
+    { "type": "pick", "char": "教", "word": "教學相長", "text": "老師說教學相長，學生也讓他學到很多。" },
+    { "type": "pick", "char": "禁", "word": "禁止", "text": "圖書館裡禁止大聲喧譁。" }
+  ]
+}

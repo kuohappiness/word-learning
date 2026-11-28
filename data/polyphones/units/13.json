@@ -1,0 +1,56 @@
+{
+  "unit": 13,
+  "page": 16,
+  "chars": {
+    "的": [
+      { "book": "ㄉㄧˋ", "senses": [
+        { "gloss": "箭靶的中心", "words": ["眾矢之的"] },
+        { "gloss": "想達到的目標", "words": ["目的", "標的"] }
+      ]},
+      { "book": "ㄉㄧˊ", "senses": [
+        { "gloss": "確實、實在", "words": ["的確"] }
+      ]},
+      { "book": "˙ㄉㄜ", "senses": [
+        { "gloss": "放在名詞前，表示「屬於誰」", "words": ["我的書"] },
+        { "gloss": "放在形容詞後面", "words": ["美麗的"] },
+        { "gloss": "指做某件事的人", "words": ["賣花的"] }
+      ]}
+    ],
+    "地": [
+      { "book": "ㄉㄧˋ", "senses": [
+        { "gloss": "地球的表面、土地", "words": ["土地", "大地"] },
+        { "gloss": "地方、區域", "words": ["目的地", "所在地", "本地"] },
+        { "gloss": "處境、位置", "words": ["設身處地", "不留餘地"] }
+      ]},
+      { "book": "˙ㄉㄜ", "senses": [
+        { "gloss": "放在形容動作的詞後面", "words": ["慢慢地"] }
+      ]}
+    ],
+    "得": [
+      { "book": "ㄉㄜˊ", "senses": [
+        { "gloss": "拿到、獲得", "words": ["取得", "得到", "得志"] },
+        { "gloss": "適當、合宜", "words": ["得體", "得當"] },
+        { "gloss": "滿意", "words": ["得意", "洋洋自得"] },
+        { "gloss": "可以", "words": ["得饒人處且饒人"] }
+      ]},
+      { "book": "˙ㄉㄜ", "senses": [
+        { "gloss": "放在動詞或形容詞後面，說明程度", "words": ["跑得快"] }
+      ]},
+      { "book": "ㄉㄟˇ", "senses": [
+        { "gloss": "應該、必須", "words": ["總得"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "地", "word": "設身處地" },
+    { "type": "word", "char": "的", "word": "標的" },
+    { "type": "word", "char": "得", "word": "得意" },
+    { "type": "word", "char": "的", "word": "的確" },
+    { "type": "sentence", "char": "得", "word": "取得", "text": "她努力練習，終於取得比賽資格。" },
+    { "type": "sentence", "char": "地", "word": "本地", "text": "本地的特產有茶葉和竹筍。" },
+    { "type": "sentence", "char": "的", "word": "目的地", "text": "再走十分鐘就到目的地了，加油！" },
+    { "type": "sentence", "char": "得", "word": "得體", "text": "他說話很得體，大家都喜歡聽。" },
+    { "type": "pick", "char": "的", "word": "眾矢之的", "text": "那個不公平的規定成了眾矢之的。" },
+    { "type": "pick", "char": "得", "word": "洋洋自得", "text": "弟弟考了滿分，一臉洋洋自得。" }
+  ]
+}

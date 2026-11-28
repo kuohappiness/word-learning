@@ -8,3 +8,8 @@
 - 重新產生：`python3 tools/build-dict.py <dict-revised.json> data/revised`
 
 說明書希望優先使用《國語辭典簡編本》（國中小適用），取得資料後可以用同樣格式另放一份，查詢時先查簡編本。
+
+
+## 多音字
+
+`polyphones.json` 是常考多音字的讀音分組、白話義項、例詞與練習題，注音一樣只取自上面的《重編本》資料。整理方式與格式見 [`polyphones/README.md`](polyphones/README.md)。

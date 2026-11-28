@@ -1,0 +1,49 @@
+{
+  "unit": 22,
+  "page": 25,
+  "chars": {
+    "累": [
+      { "book": "ㄌㄟˇ", "senses": [
+        { "gloss": "一點一點增加、堆起來", "words": ["累積", "日積月累"] },
+        { "gloss": "一次又一次", "words": ["累次"] }
+      ]},
+      { "book": "ㄌㄟˋ", "senses": [
+        { "gloss": "牽連到別人", "words": ["拖累", "連累"] },
+        { "gloss": "疲倦", "words": ["疲累", "勞累"] },
+        { "gloss": "要照顧的負擔", "words": ["家累"] }
+      ]}
+    ],
+    "瞭": [
+      { "book": "ㄌㄧㄠˇ", "senses": [
+        { "gloss": "明白、懂得", "words": ["明瞭", "瞭若指掌"] },
+        { "gloss": "清楚", "words": ["一目瞭然"] }
+      ]},
+      { "book": "ㄌㄧㄠˋ", "senses": [
+        { "gloss": "從高處往遠處看", "words": ["瞭望"] }
+      ]}
+    ],
+    "論": [
+      { "book": "ㄌㄨㄣˋ", "senses": [
+        { "gloss": "分析、討論", "words": ["談論", "討論"] },
+        { "gloss": "發表看法的文章或話", "words": ["言論"] },
+        { "gloss": "按照", "words": ["論功行賞"] },
+        { "gloss": "不管、不考慮", "words": ["不論", "無論"] }
+      ]},
+      { "book": "ㄌㄨㄣˊ", "senses": [
+        { "gloss": "記錄孔子言行的書", "words": ["論語"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "累", "word": "疲累" },
+    { "type": "word", "char": "瞭", "word": "瞭望" },
+    { "type": "word", "char": "論", "word": "論語" },
+    { "type": "word", "char": "累", "word": "累積" },
+    { "type": "sentence", "char": "累", "word": "日積月累", "text": "閱讀的能力是日積月累培養出來的。" },
+    { "type": "sentence", "char": "瞭", "word": "瞭若指掌", "text": "他對學校附近的小路瞭若指掌。" },
+    { "type": "sentence", "char": "瞭", "word": "瞭望", "text": "我們站在山頂瞭望整座城市。" },
+    { "type": "sentence", "char": "論", "word": "討論", "text": "全班分組討論校外教學要去哪裡。" },
+    { "type": "odd", "char": "累", "words": ["累積", "連累", "勞累", "疲累"] },
+    { "type": "pick", "char": "論", "word": "論功行賞", "text": "比賽結束後，教練論功行賞。" }
+  ]
+}

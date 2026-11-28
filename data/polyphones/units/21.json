@@ -1,0 +1,47 @@
+{
+  "unit": 21,
+  "page": 24,
+  "chars": {
+    "落": [
+      { "book": "ㄌㄨㄛˋ", "senses": [
+        { "gloss": "掉下來、往下降", "words": ["落花", "降落傘"] },
+        { "gloss": "稀少、冷清", "words": ["疏落", "冷落"] },
+        { "gloss": "停留或歸屬的地方", "words": ["下落", "段落"] },
+        { "gloss": "人們聚在一起住的地方", "words": ["部落", "村落"] },
+        { "gloss": "坦白自然、不拘束", "words": ["落落大方"] },
+        { "gloss": "降低", "words": ["落價", "水落石出"] },
+        { "gloss": "寫下", "words": ["落款"] }
+      ]},
+      { "book": "ㄌㄠˋ", "senses": [
+        { "gloss": "得到（某種結果）", "words": [] },
+        { "gloss": "睡姿不好，脖子痠痛轉不動", "words": ["落枕"] },
+        { "gloss": "一種民間說唱的曲調", "words": ["蓮花落"] }
+      ]},
+      { "book": "ㄌㄚˋ", "senses": [
+        { "gloss": "遺漏、忘了帶", "words": ["丟三落四"] },
+        { "gloss": "跟不上、留在後面", "words": ["落在後頭"] }
+      ]}
+    ],
+    "烙": [
+      { "book": "ㄌㄨㄛˋ", "senses": [
+        { "gloss": "古代用燒熱的金屬燙人的刑罰", "words": ["炮烙"] }
+      ]},
+      { "book": "ㄌㄠˋ", "senses": [
+        { "gloss": "用燒熱的金屬燙出痕跡", "words": ["烙印"] },
+        { "gloss": "把麵餅放在熱鍋上烤熟", "words": ["烙餅"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "落", "word": "部落" },
+    { "type": "word", "char": "落", "word": "落枕" },
+    { "type": "word", "char": "烙", "word": "烙印" },
+    { "type": "word", "char": "烙", "word": "烙餅" },
+    { "type": "sentence", "char": "落", "word": "丟三落四", "text": "弟弟常常丟三落四，出門前要再檢查一次。" },
+    { "type": "sentence", "char": "落", "word": "水落石出", "text": "事情查到最後，終於水落石出。" },
+    { "type": "sentence", "char": "落", "word": "落落大方", "text": "她上台說話落落大方，一點也不緊張。" },
+    { "type": "sentence", "char": "落", "word": "落在後頭", "text": "登山時他走得慢，總是落在後頭。" },
+    { "type": "odd", "char": "落", "words": ["降落傘", "段落", "落枕", "村落"] },
+    { "type": "pick", "char": "烙", "word": "炮烙", "text": "歷史課講到商朝的炮烙之刑。" }
+  ]
+}

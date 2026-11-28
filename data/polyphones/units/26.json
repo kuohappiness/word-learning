@@ -1,0 +1,53 @@
+{
+  "unit": 26,
+  "page": 29,
+  "chars": {
+    "閤": [
+      { "book": "ㄍㄜˊ", "senses": [
+        { "gloss": "樓房", "note": "通「閣」", "words": ["閨閤"] }
+      ]},
+      { "book": "ㄏㄜˊ", "senses": [
+        { "gloss": "關上、閉起來", "note": "通「合」、「闔」", "words": ["閤眼"] },
+        { "gloss": "全部", "note": "通「闔」", "words": ["閤府"] }
+      ]}
+    ],
+    "骨": [
+      { "book": "ㄍㄨˇ", "senses": [
+        { "gloss": "撐起身體的骨頭", "words": ["骨骼", "脊椎骨"] },
+        { "gloss": "撐起東西的架子", "words": ["傘骨", "鋼骨"] },
+        { "gloss": "人的氣節、風度", "words": ["風骨", "傲骨"] }
+      ]},
+      { "book": "ㄍㄨˊ", "senses": [
+        { "gloss": "比喻個性堅強、不屈服", "words": ["硬骨頭"] },
+        { "gloss": "形容翻滾、轉動的樣子", "words": ["骨碌碌"] }
+      ]}
+    ],
+    "滑": [
+      { "book": "ㄏㄨㄚˊ", "senses": [
+        { "gloss": "平順、沒有阻力", "words": ["滑溜"] },
+        { "gloss": "在平面上溜著走", "words": ["滑冰", "滑行", "滑雪"] },
+        { "gloss": "不實在、不老實", "words": ["油腔滑調"] },
+        { "gloss": "腳下一溜跌倒", "words": ["滑了一跤"] }
+      ]},
+      { "book": "ㄍㄨˇ", "senses": [
+        { "gloss": "言語、動作有趣好笑", "words": ["滑稽"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "骨", "word": "骨骼" },
+    { "type": "word", "char": "骨", "word": "風骨" },
+    { "type": "word", "char": "骨", "word": "傲骨" },
+    { "type": "word", "char": "閤", "word": "閤府" },
+    { "type": "sentence", "char": "骨", "word": "脊椎骨", "text": "坐姿不正確，會讓脊椎骨受傷。" },
+    { "type": "sentence", "char": "滑", "word": "滑冰", "text": "冬天到了，大家去溜冰場滑冰。" },
+    { "type": "sentence", "char": "滑", "word": "滑雪", "text": "寒假我們全家去日本學滑雪。" },
+    { "type": "sentence", "char": "閤", "word": "閤眼", "text": "照顧生病的弟弟，媽媽一整夜沒有閤眼。" },
+    { "type": "pick", "char": "骨", "word": "硬骨頭", "text": "他是個硬骨頭，遇到困難從不放棄。" },
+    { "type": "pick", "char": "滑", "word": "滑行", "text": "飛機在跑道上慢慢滑行。" }
+  ],
+  "skipped": [
+    { "char": "骨", "book": "ㄍㄨ", "what": "例詞「骨碌碌」", "reason": "書上讀 ㄍㄨ，辭典讀 ㄍㄨˊ，以辭典為主，改放 ㄍㄨˊ" },
+    { "char": "滑", "book": "ㄏㄨㄚˊ", "what": "例詞「滑稽」", "reason": "書上讀 ㄏㄨㄚˊ，辭典讀 ㄍㄨˇ，以辭典為主，改放 ㄍㄨˇ" }
+  ]
+}

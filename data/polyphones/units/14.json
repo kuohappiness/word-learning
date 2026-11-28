@@ -1,0 +1,48 @@
+{
+  "unit": 14,
+  "page": 17,
+  "chars": {
+    "倒": [
+      { "book": "ㄉㄠˇ", "senses": [
+        { "gloss": "從站著變成躺下", "words": ["摔倒", "跌倒"] },
+        { "gloss": "塌下來", "words": ["沖倒"] },
+        { "gloss": "失敗、生意做不下去", "words": ["倒閉"] },
+        { "gloss": "嗓子變啞", "words": ["倒嗓"] }
+      ]},
+      { "book": "ㄉㄠˋ", "senses": [
+        { "gloss": "把東西倒出來", "words": ["倒垃圾", "倒茶"] },
+        { "gloss": "往後退", "words": ["倒車", "倒退"] },
+        { "gloss": "反過來", "words": ["喝倒彩", "海水倒灌"] }
+      ]}
+    ],
+    "當": [
+      { "book": "ㄉㄤ", "senses": [
+        { "gloss": "擔任、承擔", "words": ["擔當", "當選", "當家"] },
+        { "gloss": "面對著、就在那時", "words": ["當機立斷", "當局者迷"] },
+        { "gloss": "應該", "words": ["應當", "當然"] },
+        { "gloss": "相稱、差不多", "words": ["旗鼓相當", "門當戶對"] }
+      ]},
+      { "book": "ㄉㄤˇ", "senses": [
+        { "gloss": "擋住", "note": "通「擋」", "words": ["螳臂當車"] }
+      ]},
+      { "book": "ㄉㄤˋ", "senses": [
+        { "gloss": "看作、認為", "words": ["當真", "當作"] },
+        { "gloss": "拿東西去抵押借錢", "words": ["典當", "當鋪"] },
+        { "gloss": "圈套", "words": ["上當"] },
+        { "gloss": "合適", "words": ["恰當", "得當", "適當"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "倒", "word": "海水倒灌" },
+    { "type": "word", "char": "倒", "word": "跌倒" },
+    { "type": "word", "char": "當", "word": "旗鼓相當" },
+    { "type": "word", "char": "當", "word": "恰當" },
+    { "type": "sentence", "char": "倒", "word": "倒車", "text": "倒車時要注意後面有沒有行人。" },
+    { "type": "sentence", "char": "當", "word": "當作", "text": "別把好朋友的提醒當作耳邊風。" },
+    { "type": "sentence", "char": "當", "word": "上當", "text": "看到太便宜的網路廣告，要小心上當。" },
+    { "type": "sentence", "char": "倒", "word": "倒茶", "text": "客人來了，我先幫他們倒茶。" },
+    { "type": "odd", "char": "當", "words": ["應當", "當真", "當然", "擔當"] },
+    { "type": "pick", "char": "當", "word": "螳臂當車", "text": "一個人想擋住整個潮流，就像螳臂當車。" }
+  ]
+}

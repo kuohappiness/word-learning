@@ -1,0 +1,54 @@
+{
+  "unit": 8,
+  "page": 11,
+  "chars": {
+    "沒": [
+      { "book": "ㄇㄟˊ", "senses": [
+        { "gloss": "表示「沒有」或「還沒」", "words": ["沒緣", "沒來"] },
+        { "gloss": "比不上", "words": ["我沒你有錢"] }
+      ]},
+      { "book": "ㄇㄛˋ", "senses": [
+        { "gloss": "沉到水裡；被水蓋住", "words": ["沉沒", "淹沒"] },
+        { "gloss": "忽然出現、忽然不見", "words": ["出沒"] },
+        { "gloss": "到盡頭、結束", "words": ["沒世"] },
+        { "gloss": "把財物收走", "words": ["沒收", "吞沒"] },
+        { "gloss": "死", "note": "通「歿」", "words": [] }
+      ]}
+    ],
+    "抹": [
+      { "book": "ㄇㄛˇ", "senses": [
+        { "gloss": "擦", "words": ["抹桌子", "抹淚"] },
+        { "gloss": "塗上", "words": ["塗抹", "抹粉", "抹藥"] },
+        { "gloss": "除去、不承認", "words": ["抹殺"] }
+      ]},
+      { "book": "ㄇㄛˋ", "senses": [
+        { "gloss": "把泥灰塗上去再弄平", "words": ["抹牆"] },
+        { "gloss": "繞彎", "words": ["拐彎抹角"] }
+      ]}
+    ],
+    "悶": [
+      { "book": "ㄇㄣ", "senses": [
+        { "gloss": "空氣不流通", "words": ["悶熱"] },
+        { "gloss": "聲音低、不響亮", "words": ["悶聲悶氣"] }
+      ]},
+      { "book": "ㄇㄣˋ", "senses": [
+        { "gloss": "心裡不痛快", "words": ["煩悶", "苦悶"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "悶", "word": "苦悶" },
+    { "type": "word", "char": "抹", "word": "塗抹" },
+    { "type": "word", "char": "沒", "word": "出沒" },
+    { "type": "word", "char": "悶", "word": "悶熱" },
+    { "type": "sentence", "char": "沒", "word": "沒辦法", "text": "外面施工太吵，我沒辦法專心讀書。" },
+    { "type": "sentence", "char": "沒", "word": "出沒", "text": "山區常有蛇出沒，走步道要小心。" },
+    { "type": "sentence", "char": "沒", "word": "淹沒", "text": "大雨讓河水上漲，淹沒了河邊的步道。" },
+    { "type": "sentence", "char": "抹", "word": "拐彎抹角", "text": "有話直說，不用拐彎抹角。" },
+    { "type": "odd", "char": "沒", "words": ["沒收", "沉沒", "沒辦法", "出沒"] },
+    { "type": "pick", "char": "抹", "word": "抹殺", "text": "大家的努力不能被一句話抹殺。" }
+  ],
+  "skipped": [
+    { "char": "沒", "book": "ㄇㄛˋ", "what": "例詞「病沒」", "reason": "辭典沒有這個詞" }
+  ]
+}

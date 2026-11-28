@@ -1,0 +1,59 @@
+{
+  "unit": 35,
+  "page": 38,
+  "chars": {
+    "降": [
+      { "book": "ㄐㄧㄤˋ", "senses": [
+        { "gloss": "從高處落下", "words": ["降落", "降雨"] },
+        { "gloss": "減少、往下調", "words": ["降價", "降低", "降級"] },
+        { "gloss": "給予", "words": ["降福"] }
+      ]},
+      { "book": "ㄒㄧㄤˊ", "senses": [
+        { "gloss": "屈服、順從", "words": ["投降"] },
+        { "gloss": "使對方服從、制伏", "words": ["降伏", "一物降一物"] }
+      ]}
+    ],
+    "雋": [
+      { "book": "ㄐㄩㄢˋ", "senses": [
+        { "gloss": "話語或文字意味深長、耐人尋味", "words": ["雋永", "雋語"] }
+      ]},
+      { "book": "ㄐㄩㄣˋ", "senses": [
+        { "gloss": "才智出眾，同「俊」", "words": ["雋拔"] }
+      ]}
+    ],
+    "間": [
+      { "book": "ㄐㄧㄢ", "senses": [
+        { "gloss": "一段時間或空間", "words": ["時間"] },
+        { "gloss": "在兩者當中", "words": ["中間"] },
+        { "gloss": "地方、處所", "words": ["田間", "房間"] },
+        { "gloss": "計算房屋的單位", "words": ["兩間"] }
+      ]},
+      { "book": "ㄐㄧㄢˋ", "senses": [
+        { "gloss": "空隙", "words": ["間隙", "間不容髮"] },
+        { "gloss": "隔開、不連續", "words": ["間隔", "間斷"] },
+        { "gloss": "挑撥使人不和", "words": ["離間", "挑撥離間"] },
+        { "gloss": "夾雜在一起", "words": ["間雜", "相間"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "降", "book": "ㄒㄧㄤˊ", "what": "例詞「寧死不降」", "reason": "和戰爭生死有關，改用「投降」" },
+    { "char": "雋", "book": "ㄐㄩㄣˋ", "what": "例詞「雋才」「雋秀」", "reason": "辭典沒有這些詞，改用「雋拔」" },
+    { "char": "間", "book": "ㄐㄧㄢˋ", "what": "例詞「黑白相間」", "reason": "辭典沒有這個詞，改用「相間」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "降", "word": "降落" },
+    { "type": "word", "char": "雋", "word": "雋永" },
+    { "type": "word", "char": "降", "word": "降伏" },
+    { "type": "word", "char": "間", "word": "間接" },
+    { "type": "sentence", "char": "間", "word": "中間", "text": "拍照時，小妹妹站在爸爸和媽媽中間。" },
+    { "type": "sentence", "char": "間", "word": "間隙", "text": "這兩塊拼圖接得很緊，沒有一點間隙。" },
+    { "type": "sentence", "char": "降", "word": "降雨", "text": "氣象報告說明天午後可能降雨。" },
+    { "type": "sentence", "char": "降", "word": "投降", "text": "對方隊伍實力太強，我們只好舉白旗投降。" },
+    { "type": "sentence", "char": "間", "word": "房間", "text": "弟弟把自己的房間收拾得很整齊。" },
+    { "type": "pick", "char": "間", "word": "離間", "text": "不要聽信別人離間的話。" },
+    { "type": "pick", "char": "降", "word": "喜從天降", "text": "收到得獎通知，真是喜從天降。" },
+    { "type": "pick", "char": "雋", "word": "雋拔", "text": "這位作家年紀輕輕，文筆卻十分雋拔。" },
+    { "type": "pick", "char": "間", "word": "田間", "text": "農夫在田間忙著插秧。" }
+  ]
+}

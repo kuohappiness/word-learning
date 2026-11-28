@@ -1,0 +1,59 @@
+{
+  "unit": 20,
+  "page": 23,
+  "chars": {
+    "麗": [
+      { "book": "ㄌㄧˋ", "senses": [
+        { "gloss": "美好、好看", "words": ["美麗", "豔麗"] },
+        { "gloss": "明亮、晴朗", "words": ["風和日麗"] }
+      ]},
+      { "book": "ㄌㄧˊ", "senses": [
+        { "gloss": "朝鮮半島古國名", "words": ["高麗"] }
+      ]}
+    ],
+    "陸": [
+      { "book": "ㄌㄨˋ", "senses": [
+        { "gloss": "高出水面的土地", "words": ["大陸", "陸地"] },
+        { "gloss": "陸上的道路", "words": ["水陸"] }
+      ]},
+      { "book": "ㄌㄧㄡˋ", "senses": [
+        { "gloss": "數字「六」的大寫，寫在支票、收據上防止被改", "words": [] }
+      ]}
+    ],
+    "露": [
+      { "book": "ㄌㄨˋ", "senses": [
+        { "gloss": "靠近地面的水氣凝成的小水珠", "words": ["露珠", "露水"] },
+        { "gloss": "顯現出來", "words": ["顯露", "展露", "流露"] },
+        { "gloss": "在屋外、沒有遮蓋", "words": ["露天", "露宿"] }
+      ]},
+      { "book": "ㄌㄡˋ", "senses": [
+        { "gloss": "顯現出來（口語）", "words": ["露出馬腳", "露臉"] }
+      ]}
+    ],
+    "量": [
+      { "book": "ㄌㄧㄤˋ", "senses": [
+        { "gloss": "估算出來的多少", "words": ["重量", "數量"] },
+        { "gloss": "能容納的限度", "words": ["容量", "飯量"] }
+      ]},
+      { "book": "ㄌㄧㄤˊ", "senses": [
+        { "gloss": "測出長短、大小", "words": ["測量", "量身"] },
+        { "gloss": "仔細考慮", "words": ["考量"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "量", "book": "ㄌㄧㄤˋ", "what": "例詞「酒量」", "reason": "和喝酒有關；改用「飯量」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "麗", "word": "豔麗" },
+    { "type": "word", "char": "露", "word": "展露" },
+    { "type": "word", "char": "量", "word": "測量" },
+    { "type": "word", "char": "量", "word": "重量" },
+    { "type": "sentence", "char": "量", "word": "數量", "text": "今年報名的數量比去年多。" },
+    { "type": "sentence", "char": "陸", "word": "陸續", "text": "同學們陸續走進教室。" },
+    { "type": "sentence", "char": "露", "word": "流露", "text": "她的眼神流露出調皮的笑意。" },
+    { "type": "sentence", "char": "量", "word": "量身", "text": "這套戲服是專門為你量身訂做的。" },
+    { "type": "odd", "char": "露", "words": ["露珠", "露天", "露臉", "顯露"] },
+    { "type": "pick", "char": "麗", "word": "高麗", "text": "高麗是朝鮮半島歷史上的一個古國。" }
+  ]
+}

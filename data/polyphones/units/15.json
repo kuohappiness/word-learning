@@ -1,0 +1,56 @@
+{
+  "unit": 15,
+  "page": 18,
+  "chars": {
+    "答": [
+      { "book": "ㄉㄚ", "senses": [
+        { "gloss": "同意、允許", "words": ["答應"] },
+        { "gloss": "形容水滴或時鐘的聲音", "words": ["滴答"] },
+        { "gloss": "害羞的樣子", "words": ["羞答答"] }
+      ]},
+      { "book": "ㄉㄚˊ", "senses": [
+        { "gloss": "回覆別人的問題", "words": ["答案", "回答"] },
+        { "gloss": "回報別人", "words": ["報答", "答謝", "答禮"] }
+      ]}
+    ],
+    "肚": [
+      { "book": "ㄉㄨˋ", "senses": [
+        { "gloss": "肚子、腹部", "words": ["肚子", "肚皮"] }
+      ]},
+      { "book": "ㄉㄨˇ", "senses": [
+        { "gloss": "當作食物的動物的胃", "words": ["牛肚", "豬肚"] }
+      ]}
+    ],
+    "都": [
+      { "book": "ㄉㄡ", "senses": [
+        { "gloss": "全部", "words": ["都是"] },
+        { "gloss": "甚至", "words": ["一動都不動"] },
+        { "gloss": "已經", "words": [] }
+      ]},
+      { "book": "ㄉㄨ", "senses": [
+        { "gloss": "大城市", "words": ["都市", "港都"] },
+        { "gloss": "國家中央政府所在的城市", "words": ["首都", "京都"] }
+      ]}
+    ],
+    "釘": [
+      { "book": "ㄉㄧㄥ", "senses": [
+        { "gloss": "緊緊跟著、看著", "note": "通「盯」", "words": ["緊迫釘人"] }
+      ]},
+      { "book": "ㄉㄧㄥˋ", "senses": [
+        { "gloss": "用釘子或針把東西固定住", "words": ["釘書機", "釘扣子"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "釘", "word": "釘書機" },
+    { "type": "word", "char": "都", "word": "港都" },
+    { "type": "word", "char": "肚", "word": "肚皮" },
+    { "type": "word", "char": "答", "word": "報答" },
+    { "type": "sentence", "char": "答", "word": "答應", "text": "媽媽答應週末帶我們去爬山。" },
+    { "type": "sentence", "char": "都", "word": "都市", "text": "都市的生活步調比鄉下快。" },
+    { "type": "sentence", "char": "肚", "word": "肚子", "text": "聽完這個笑話，大家笑到肚子痛。" },
+    { "type": "sentence", "char": "都", "word": "京都", "text": "去年暑假，我們去日本京都看古老的寺廟。" },
+    { "type": "pick", "char": "答", "word": "答案", "text": "寫完考卷，記得再檢查一次答案。" },
+    { "type": "pick", "char": "肚", "word": "牛肚", "text": "這道滷牛肚是外婆的拿手菜。" }
+  ]
+}
