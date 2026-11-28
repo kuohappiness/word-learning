@@ -262,6 +262,11 @@ def write_md(review, issues):
         L += [f'### {k}（{len(its)}）', '']
         L += [f'- 第 {it["unit"]} 單元「{it["char"]}」：{it["text"]}' for it in its]
         L += ['']
+    fixed = [(ru['unit'], x) for ru in review for x in ru['skipped'] if '以辭典為主' in x['reason']]
+    if fixed:
+        L += [f'## 已照辭典改正（{len(fixed)}）', '', '書上和辭典不一樣的地方，一律以辭典為主。', '']
+        L += [f'- 第 {n} 單元「{x["char"]}」{x["what"]}：{x["reason"]}' for n, x in fixed]
+        L += ['']
     for ru in review:
         L += [f'## 第 {ru["unit"]} 單元（書頁 {ru["page"]}）：{"、".join(c["char"] for c in ru["chars"])}', '']
         for rc in ru['chars']:
@@ -282,7 +287,7 @@ def write_md(review, issues):
                 L += ['- 辭典另有、書上沒收：' + '；'.join(f'{e["b"]}（{e["defs"][0] if e["defs"] else ""}）' for e in rc['extra'])]
             L += ['']
         if ru['skipped']:
-            L += ['**沒收進來的**', '']
+            L += ['**沒收進來或照辭典改過的**', '']
             L += [f'- 「{s["char"]}」{s["book"]} {s["what"]}：{s["reason"]}' for s in ru['skipped']]
             L += ['']
         L += ['**練習題（答案由辭典推出）**', '', '| # | 題型 | 題目 | 答案 |', '|---|---|---|---|']
