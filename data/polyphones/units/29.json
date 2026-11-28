@@ -1,0 +1,49 @@
+{
+  "unit": 29,
+  "page": 32,
+  "chars": {
+    "劃": [
+      { "book": "ㄏㄨㄚˋ", "senses": [
+        { "gloss": "分開、分界", "words": ["劃分", "區劃"] },
+        { "gloss": "事先安排、設計", "words": ["計劃", "規劃", "籌劃"] },
+        { "gloss": "整齊一致", "words": ["整齊劃一"] },
+        { "gloss": "郵局匯款的方式", "words": ["劃撥"] }
+      ]},
+      { "book": "ㄏㄨㄚˊ", "senses": [
+        { "gloss": "用尖的東西在表面劃過", "words": ["劃了一道"] },
+        { "gloss": "擦過", "words": ["劃火柴"] }
+      ]}
+    ],
+    "化": [
+      { "book": "ㄏㄨㄚˋ", "senses": [
+        { "gloss": "教導人變好", "words": ["感化", "教化"] },
+        { "gloss": "改變", "words": ["化名", "千變萬化"] },
+        { "gloss": "消除", "words": ["化解"] },
+        { "gloss": "讓東西的形態改變", "words": ["液化", "焚化"] }
+      ]},
+      { "book": "ㄏㄨㄚ", "senses": [
+        { "gloss": "乞丐", "words": ["叫化子"] }
+      ]}
+    ],
+    "吭": [
+      { "book": "ㄏㄤˊ", "senses": [
+        { "gloss": "喉嚨", "words": ["引吭高歌"] }
+      ]},
+      { "book": "ㄎㄥ", "senses": [
+        { "gloss": "出聲、說話", "words": ["吭聲", "吭氣", "悶不吭聲"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "劃", "word": "籌劃" },
+    { "type": "word", "char": "化", "word": "教化" },
+    { "type": "word", "char": "劃", "word": "劃分" },
+    { "type": "word", "char": "吭", "word": "吭聲" },
+    { "type": "sentence", "char": "化", "word": "風化", "text": "砂岩很容易被風化。" },
+    { "type": "sentence", "char": "劃", "word": "劃火柴", "text": "露營時，爸爸教我們怎麼安全地劃火柴。" },
+    { "type": "sentence", "char": "化", "word": "千變萬化", "text": "日出前的雲彩千變萬化。" },
+    { "type": "sentence", "char": "吭", "word": "引吭高歌", "text": "畢業典禮上，全班一起引吭高歌。" },
+    { "type": "pick", "char": "劃", "word": "整齊劃一", "text": "儀隊的動作整齊劃一。" },
+    { "type": "pick", "char": "化", "word": "叫化子", "text": "故事裡的叫化子其實是一位大俠。" }
+  ]
+}

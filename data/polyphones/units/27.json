@@ -1,0 +1,53 @@
+{
+  "unit": 27,
+  "page": 30,
+  "chars": {
+    "龜": [
+      { "book": "ㄍㄨㄟ", "senses": [
+        { "gloss": "有硬殼、頭尾和腳都能縮進殼裡的動物", "words": ["烏龜", "海龜"] }
+      ]},
+      { "book": "ㄐㄩㄣ", "senses": [
+        { "gloss": "皮膚或地面乾得裂開", "words": ["龜裂"] }
+      ]},
+      { "book": "ㄑㄧㄡ", "senses": [
+        { "gloss": "漢代西域的國名", "words": ["龜茲"] }
+      ]}
+    ],
+    "給": [
+      { "book": "ㄍㄟˇ", "senses": [
+        { "gloss": "把東西交給別人", "words": ["送給", "借給"] },
+        { "gloss": "被", "words": ["給他騙了"] },
+        { "gloss": "向、對", "words": ["給他道謝"] }
+      ]},
+      { "book": "ㄐㄧˇ", "senses": [
+        { "gloss": "供應", "words": ["補給", "自給自足", "供給"] },
+        { "gloss": "授予", "words": ["給與"] },
+        { "gloss": "薪水以外另外發的錢", "words": ["加給"] },
+        { "gloss": "豐足、充足", "words": ["家給人足"] },
+        { "gloss": "准許", "words": ["給假"] }
+      ]}
+    ],
+    "軋": [
+      { "book": "ㄍㄚˊ", "senses": [
+        { "gloss": "趕著同時做好幾件事", "words": ["軋戲"] },
+        { "gloss": "調借錢周轉", "words": ["軋頭寸"] }
+      ]},
+      { "book": "ㄧㄚˋ", "senses": [
+        { "gloss": "用重物壓過去", "words": ["軋路機"] },
+        { "gloss": "排擠", "words": ["傾軋"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "龜", "word": "海龜" },
+    { "type": "word", "char": "給", "word": "加給" },
+    { "type": "word", "char": "給", "word": "補給" },
+    { "type": "word", "char": "軋", "word": "軋戲" },
+    { "type": "sentence", "char": "給", "word": "自給自足", "text": "以前的農家過著自給自足的生活。" },
+    { "type": "sentence", "char": "龜", "word": "龜裂", "text": "冬天太乾燥，爺爺的手都龜裂了。" },
+    { "type": "sentence", "char": "軋", "word": "軋路機", "text": "工人開著軋路機把路面壓平。" },
+    { "type": "sentence", "char": "龜", "word": "龜茲", "text": "龜茲是古代絲路上的一個國家。" },
+    { "type": "pick", "char": "給", "word": "家給人足", "text": "那年風調雨順，村裡家給人足。" },
+    { "type": "pick", "char": "軋", "word": "傾軋", "text": "團隊合作最怕互相傾軋。" }
+  ]
+}

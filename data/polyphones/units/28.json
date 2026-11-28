@@ -1,0 +1,45 @@
+{
+  "unit": 28,
+  "page": 31,
+  "chars": {
+    "空": [
+      { "book": "ㄎㄨㄥ", "senses": [
+        { "gloss": "裡面沒有東西", "words": ["空屋", "空虛"] },
+        { "gloss": "寬廣", "words": ["空曠", "海闊天空"] },
+        { "gloss": "不切實際", "words": ["空談"] },
+        { "gloss": "天空", "words": ["高空", "晴空", "星空"] },
+        { "gloss": "白白地", "words": ["空歡喜"] }
+      ]},
+      { "book": "ㄎㄨㄥˋ", "senses": [
+        { "gloss": "空閒的時間", "words": ["空閒", "有空"] },
+        { "gloss": "沒有被占用的", "words": ["空白", "空地"] },
+        { "gloss": "缺少、短少", "words": ["虧空"] },
+        { "gloss": "騰出來", "words": ["空出一點時間"] }
+      ]}
+    ],
+    "看": [
+      { "book": "ㄎㄢˋ", "senses": [
+        { "gloss": "用眼睛看", "words": ["看見"] },
+        { "gloss": "拜訪、探望", "words": ["探看", "看望"] },
+        { "gloss": "放在動詞後，表示試試", "words": ["試試看"] },
+        { "gloss": "對事情的理解", "words": ["看法"] }
+      ]},
+      { "book": "ㄎㄢ", "senses": [
+        { "gloss": "守著、保護", "words": ["看門", "看家"] },
+        { "gloss": "照顧、看管", "words": ["看顧", "看護", "看守"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "看", "word": "探看" },
+    { "type": "word", "char": "空", "word": "星空" },
+    { "type": "word", "char": "看", "word": "看家" },
+    { "type": "word", "char": "空", "word": "空地" },
+    { "type": "sentence", "char": "空", "word": "空閒", "text": "舅舅一有空閒就去練跆拳道。" },
+    { "type": "sentence", "char": "空", "word": "空歡喜", "text": "原來不是我中獎，害我空歡喜一場。" },
+    { "type": "sentence", "char": "看", "word": "看護", "text": "醫院的看護細心地照顧病人。" },
+    { "type": "sentence", "char": "看", "word": "刮目相看", "text": "他進步這麼多，真讓人刮目相看。" },
+    { "type": "pick", "char": "空", "word": "空隙", "text": "書架上還有一點空隙可以放書。" },
+    { "type": "odd", "char": "看", "words": ["看見", "看守", "看法", "試試看"] }
+  ]
+}

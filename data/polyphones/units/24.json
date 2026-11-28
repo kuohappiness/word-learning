@@ -1,0 +1,59 @@
+{
+  "unit": 24,
+  "page": 27,
+  "chars": {
+    "勾": [
+      { "book": "ㄍㄡ", "senses": [
+        { "gloss": "彎曲、可以掛東西的器物", "words": ["衣勾"] },
+        { "gloss": "打勾的符號，表示選取或刪去", "words": ["打勾", "勾銷"] },
+        { "gloss": "引起", "words": [] },
+        { "gloss": "暗中串通", "words": ["勾結"] },
+        { "gloss": "畫出輪廓", "words": ["勾勒", "勾畫"] }
+      ]},
+      { "book": "ㄍㄡˋ", "senses": [
+        { "gloss": "事情（多指不好的事）", "words": ["勾當"] },
+        { "gloss": "伸手去拿", "words": [] }
+      ]}
+    ],
+    "各": [
+      { "book": "ㄍㄜˋ", "senses": [
+        { "gloss": "每一個", "words": ["各處", "各別", "各行各業"] }
+      ]},
+      { "book": "ㄍㄜˇ", "senses": [
+        { "gloss": "自己（口語）", "words": ["自各兒"] }
+      ]}
+    ],
+    "呱": [
+      { "book": "ㄍㄨ", "senses": [
+        { "gloss": "形容嬰兒的哭聲", "words": ["呱呱墜地"] }
+      ]},
+      { "book": "ㄍㄨㄚ", "senses": [
+        { "gloss": "非常好", "words": ["頂呱呱"] },
+        { "gloss": "形容鳥獸的叫聲", "words": ["呱呱叫"] }
+      ]}
+    ],
+    "崗": [
+      { "book": "ㄍㄤ", "senses": [
+        { "gloss": "山脊、小山", "note": "通「岡」", "words": ["山崗"] }
+      ]},
+      { "book": "ㄍㄤˇ", "senses": [
+        { "gloss": "守衛、值勤的地方", "words": ["崗哨", "站崗", "崗位"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "勾", "book": "ㄍㄡ", "what": "例詞「勾三搭四」", "reason": "指不正當的男女往來，不適合兒少" }
+  ],
+  "practice": [
+    { "type": "word", "char": "崗", "word": "山崗" },
+    { "type": "word", "char": "勾", "word": "勾結" },
+    { "type": "word", "char": "崗", "word": "站崗" },
+    { "type": "word", "char": "勾", "word": "勾當" },
+    { "type": "sentence", "char": "勾", "word": "打勾", "text": "答對的題目，老師會在旁邊打勾。" },
+    { "type": "sentence", "char": "各", "word": "各行各業", "text": "各行各業都有自己的辛苦。" },
+    { "type": "sentence", "char": "勾", "word": "勾勒", "text": "畫家先用鉛筆勾勒出輪廓。" },
+    { "type": "sentence", "char": "呱", "word": "頂呱呱", "text": "大家都說他的手藝頂呱呱。" },
+    { "type": "pick", "char": "呱", "word": "呱呱叫", "text": "池塘裡的青蛙呱呱叫。" },
+    { "type": "odd", "char": "勾", "words": ["勾結", "勾勒", "勾當", "打勾"] }
+  ]
+}
