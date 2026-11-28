@@ -1,0 +1,53 @@
+{
+  "unit": 34,
+  "page": 37,
+  "chars": {
+    "華": [
+      { "book": "ㄏㄨㄚˊ", "senses": [
+        { "gloss": "中國的簡稱", "words": ["華人", "華僑", "中華"] },
+        { "gloss": "美麗、有光彩的", "words": ["華美", "華麗"] },
+        { "gloss": "興盛熱鬧的樣子", "words": ["繁華"] },
+        { "gloss": "時光、歲月", "words": ["年華"] },
+        { "gloss": "化妝用的粉", "words": ["鉛華"] },
+        { "gloss": "表面好看但不實在", "words": ["浮華", "華而不實"] },
+        { "gloss": "頭髮花白", "words": ["華髮"] }
+      ]},
+      { "book": "ㄏㄨㄚˋ", "senses": [
+        { "gloss": "山名，在陝西", "words": ["華山"] }
+      ]},
+      { "book": "ㄏㄨㄚ", "senses": [
+        { "gloss": "植物的花，同「花」", "words": ["春華秋實"] }
+      ]}
+    ],
+    "還": [
+      { "book": "ㄏㄞˊ", "senses": [
+        { "gloss": "仍然、依舊", "words": ["還沒有", "還是"] },
+        { "gloss": "勉強過得去", "words": ["還好"] },
+        { "gloss": "竟然", "words": ["還真"] }
+      ]},
+      { "book": "ㄏㄨㄢˊ", "senses": [
+        { "gloss": "回到原處、交回去", "words": ["還書", "還錢", "交還"] },
+        { "gloss": "恢復原來的樣子", "words": ["還俗", "還原"] },
+        { "gloss": "回報、反擊", "words": ["還擊", "以牙還牙"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "華", "book": "ㄏㄨㄚˊ", "what": "例詞「洗盡鉛華」「華語」", "reason": "辭典沒有這些詞，改用「鉛華」「華僑」" },
+    { "char": "還", "book": "ㄏㄞˊ", "what": "例詞「還沒」「還算」", "reason": "辭典沒有這些詞，改用「還沒有」「還好」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "華", "word": "華人" },
+    { "type": "word", "char": "還", "word": "還沒有" },
+    { "type": "word", "char": "華", "word": "華髮" },
+    { "type": "word", "char": "還", "word": "還俗" },
+    { "type": "sentence", "char": "華", "word": "浮華", "text": "我們家崇尚節儉，不喜歡浮華的生活。" },
+    { "type": "sentence", "char": "還", "word": "還原", "text": "壓扁的紙箱很難還原成本來的樣子。" },
+    { "type": "sentence", "char": "還", "word": "還是", "text": "不論颳風下雨，他還是準時到校。" },
+    { "type": "sentence", "char": "華", "word": "春華秋實", "text": "春華秋實，努力耕耘才會有收穫。" },
+    { "type": "pick", "char": "還", "word": "還書", "text": "記得在期限內到圖書館還書。" },
+    { "type": "pick", "char": "華", "word": "樸實無華", "text": "這篇文章樸實無華，卻很感人。" },
+    { "type": "pick", "char": "還", "word": "還擊", "text": "比賽中對手猛攻，我們立刻還擊。" },
+    { "type": "pick", "char": "還", "word": "討價還價", "text": "媽媽在市場和老闆討價還價。" }
+  ]
+}

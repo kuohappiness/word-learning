@@ -1,0 +1,64 @@
+{
+  "unit": 39,
+  "page": 42,
+  "chars": {
+    "將": [
+      { "book": "ㄐㄧㄤ", "senses": [
+        { "gloss": "就要、未來會", "words": ["將來", "將要"] },
+        { "gloss": "把", "words": ["將門關好"] },
+        { "gloss": "用、拿", "words": ["將計就計", "將錯就錯"] }
+      ]},
+      { "book": "ㄐㄧㄤˋ", "senses": [
+        { "gloss": "帶兵的軍官", "words": ["將領", "將帥", "勇將"] },
+        { "gloss": "某方面能力很強的人", "words": ["健將"] }
+      ]}
+    ],
+    "嚼": [
+      { "book": "ㄐㄧㄠˊ", "senses": [
+        { "gloss": "用牙齒咬碎食物", "words": ["細嚼慢嚥"] },
+        { "gloss": "愛說閒話、搬弄是非", "words": ["嚼舌"] }
+      ]},
+      { "book": "ㄐㄩㄝˊ", "senses": [
+        { "gloss": "把食物含在嘴裡慢慢咬、細細品嘗", "words": ["咀嚼"] }
+      ]}
+    ],
+    "幾": [
+      { "book": "ㄐㄧ", "senses": [
+        { "gloss": "很接近、差不多", "words": ["幾乎"] }
+      ]},
+      { "book": "ㄐㄧˇ", "senses": [
+        { "gloss": "表示不確定的數目", "words": ["相差無幾"] },
+        { "gloss": "問數目多少", "words": ["幾時", "幾個"] }
+      ]}
+    ],
+    "攪": [
+      { "book": "ㄐㄧㄠˇ", "senses": [
+        { "gloss": "轉動使東西混合", "words": ["攪拌"] },
+        { "gloss": "打擾、擾亂", "words": ["打攪", "攪局", "攪鬼"] }
+      ]},
+      { "book": "ㄍㄠˇ", "senses": [
+        { "gloss": "做、弄，同「搞」", "words": ["胡攪"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "攪", "book": "ㄍㄠˇ", "what": "例詞「攪鬼」", "reason": "書上讀 ㄍㄠˇ，辭典讀 ㄐㄧㄠˇ，以辭典為主，改放 ㄐㄧㄠˇ" },
+    { "char": "將", "book": "ㄐㄧㄤˋ", "what": "練習句「打麻將」", "reason": "不適合兒少，改用「健將」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "嚼", "word": "嚼舌" },
+    { "type": "word", "char": "幾", "word": "幾乎" },
+    { "type": "word", "char": "攪", "word": "攪局" },
+    { "type": "word", "char": "攪", "word": "攪鬼" },
+    { "type": "sentence", "char": "攪", "word": "打攪", "text": "哥哥正在讀書，別去打攪他。" },
+    { "type": "sentence", "char": "嚼", "word": "細嚼慢嚥", "text": "吃飯要細嚼慢嚥，才能幫助消化。" },
+    { "type": "sentence", "char": "幾", "word": "相差無幾", "text": "這兩杯果汁的味道相差無幾。" },
+    { "type": "sentence", "char": "將", "word": "健將", "text": "她是學校的游泳健將。" },
+    { "type": "sentence", "char": "幾", "word": "幾何", "text": "數學課開始教幾何圖形了。" },
+    { "type": "sentence", "char": "將", "word": "將領", "text": "歷史課介紹了古代有名的將領。" },
+    { "type": "pick", "char": "嚼", "word": "咀嚼", "text": "牙齒痛的時候，咀嚼食物很不舒服。" },
+    { "type": "pick", "char": "將", "word": "將錯就錯", "text": "寫錯了就改過來，不要將錯就錯。" },
+    { "type": "pick", "char": "攪", "word": "攪拌", "text": "把麵粉和牛奶攪拌均勻。" },
+    { "type": "pick", "char": "將", "word": "將功折罪", "text": "他努力打掃教室，想將功折罪。" }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "unit": 32,
+  "page": 35,
+  "chars": {
+    "晃": [
+      { "book": "ㄏㄨㄤˇ", "senses": [
+        { "gloss": "明亮、閃亮的樣子", "words": ["明晃晃", "亮晃晃"] },
+        { "gloss": "形容時間過得很快", "words": ["一晃眼"] }
+      ]},
+      { "book": "ㄏㄨㄤˋ", "senses": [
+        { "gloss": "左右搖動、擺動", "words": ["搖晃", "搖頭晃腦"] }
+      ]}
+    ],
+    "會": [
+      { "book": "ㄏㄨㄟˋ", "senses": [
+        { "gloss": "聚在一起", "words": ["會合", "會商", "會談"] },
+        { "gloss": "很多人聚集的活動", "words": ["晚會"] },
+        { "gloss": "團體、組織", "words": ["工會", "同鄉會"] },
+        { "gloss": "見面", "words": ["會面", "會見"] },
+        { "gloss": "明白、領悟", "words": ["心領神會", "體會"] },
+        { "gloss": "恰好的時候", "words": ["機會"] }
+      ]},
+      { "book": "ㄎㄨㄞˋ", "senses": [
+        { "gloss": "管理錢財、帳目", "words": ["會計"] }
+      ]},
+      { "book": "ㄏㄨㄟˇ", "senses": [
+        { "gloss": "很短的時間", "words": ["一會", "一會兒"] }
+      ]}
+    ],
+    "橫": [
+      { "book": "ㄏㄥˊ", "senses": [
+        { "gloss": "和地面平行的方向，和「直」「縱」相對", "words": ["縱橫"] },
+        { "gloss": "從東到西的方向", "words": ["橫貫"] }
+      ]},
+      { "book": "ㄏㄥˋ", "senses": [
+        { "gloss": "粗暴、不講道理", "words": ["強橫", "蠻橫"] },
+        { "gloss": "意外的、突然的", "words": ["橫禍"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "橫", "book": "ㄏㄥˋ", "what": "例詞「橫死」", "reason": "不適合兒少" }
+  ],
+  "practice": [
+    { "type": "word", "char": "會", "word": "會面" },
+    { "type": "word", "char": "會", "word": "會計" },
+    { "type": "word", "char": "會", "word": "晚會" },
+    { "type": "word", "char": "橫", "word": "縱橫" },
+    { "type": "sentence", "char": "橫", "word": "橫貫", "text": "這條公路橫貫中央山脈。" },
+    { "type": "sentence", "char": "橫", "word": "蠻橫", "text": "他說話的態度很蠻橫，讓人不舒服。" },
+    { "type": "sentence", "char": "會", "word": "心領神會", "text": "老師一個眼神，她就心領神會地點點頭。" },
+    { "type": "sentence", "char": "會", "word": "體會", "text": "當了值日生，才體會到打掃的辛苦。" },
+    { "type": "sentence", "char": "晃", "word": "一晃眼", "text": "一晃眼，暑假就過完了。" },
+    { "type": "pick", "char": "橫", "word": "橫行霸道", "text": "欺負弱小、橫行霸道的人不會有朋友。" },
+    { "type": "pick", "char": "晃", "word": "亮晃晃", "text": "太陽照得湖面亮晃晃的。" },
+    { "type": "pick", "char": "會", "word": "一會", "text": "我們先休息一會，再繼續練習。" },
+    { "type": "pick", "char": "晃", "word": "搖頭晃腦", "text": "弟弟搖頭晃腦地背著唐詩。" }
+  ]
+}
