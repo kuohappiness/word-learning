@@ -1,0 +1,51 @@
+{
+  "unit": 12,
+  "page": 15,
+  "chars": {
+    "單": [
+      { "book": "ㄉㄢ", "senses": [
+        { "gloss": "不成雙的、奇數的", "words": ["單數"] },
+        { "gloss": "只有一個、孤單", "words": ["孤單", "形單影隻"] },
+        { "gloss": "不複雜", "words": ["簡單", "單純"] },
+        { "gloss": "記錄事情的紙張", "words": ["名單", "菜單"] }
+      ]},
+      { "book": "ㄔㄢˊ", "senses": [
+        { "gloss": "古代匈奴對君主的稱呼", "words": ["單于"] }
+      ]}
+    ],
+    "彈": [
+      { "book": "ㄉㄢˋ", "senses": [
+        { "gloss": "用彈弓射出去的小丸子", "words": ["彈丸"] },
+        { "gloss": "槍炮射出去的東西", "words": ["子彈", "炸彈"] }
+      ]},
+      { "book": "ㄊㄢˊ", "senses": [
+        { "gloss": "東西被壓彎後能恢復原狀", "words": ["彈性", "彈簧"] },
+        { "gloss": "檢舉官員的過失", "words": ["彈劾"] },
+        { "gloss": "用手指撥動樂器", "words": ["彈奏", "彈琴"] }
+      ]}
+    ],
+    "擔": [
+      { "book": "ㄉㄢ", "senses": [
+        { "gloss": "用肩膀挑東西", "words": ["擔水"] },
+        { "gloss": "挑東西用的長木條", "words": ["扁擔"] },
+        { "gloss": "放在心上、煩惱", "words": ["擔心", "擔憂"] },
+        { "gloss": "承受、負起責任", "words": ["負擔", "擔當"] }
+      ]},
+      { "book": "ㄉㄢˋ", "senses": [
+        { "gloss": "要扛的責任或壓力", "words": ["重擔"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "單", "word": "單純" },
+    { "type": "word", "char": "彈", "word": "彈性" },
+    { "type": "word", "char": "擔", "word": "擔心" },
+    { "type": "word", "char": "擔", "word": "重擔" },
+    { "type": "sentence", "char": "擔", "word": "擔當", "text": "班長做事有擔當，大家都很信任她。" },
+    { "type": "sentence", "char": "單", "word": "菜單", "text": "服務生拿來菜單，請我們慢慢點菜。" },
+    { "type": "sentence", "char": "彈", "word": "彈奏", "text": "姊姊會彈奏鋼琴，也會拉小提琴。" },
+    { "type": "sentence", "char": "彈", "word": "彈弓", "text": "爺爺說他小時候會自己做彈弓。" },
+    { "type": "pick", "char": "彈", "word": "子彈", "text": "這部科普影片介紹子彈為什麼飛得那麼快。" },
+    { "type": "pick", "char": "單", "word": "單于", "text": "歷史課本提到，匈奴的領袖叫做單于。" }
+  ]
+}

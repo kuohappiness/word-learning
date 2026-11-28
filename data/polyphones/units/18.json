@@ -1,0 +1,51 @@
+{
+  "unit": 18,
+  "page": 21,
+  "chars": {
+    "頭": [
+      { "book": "ㄊㄡˊ", "senses": [
+        { "gloss": "動物脖子以上的部分", "words": ["牛頭"] },
+        { "gloss": "頭髮或髮型", "words": ["洗頭", "平頭"] },
+        { "gloss": "事情的開始", "words": ["從頭", "開頭"] },
+        { "gloss": "事情的最後", "words": ["盡頭", "到頭"] },
+        { "gloss": "剩下的零碎部分", "words": ["零頭"] },
+        { "gloss": "帶領大家的人", "words": ["頭領", "頭目"] }
+      ]},
+      { "book": "˙ㄊㄡ", "senses": [
+        { "gloss": "放在詞的最後，沒有實際意思", "words": ["石頭", "木頭"] }
+      ]}
+    ],
+    "勒": [
+      { "book": "ㄌㄜˋ", "senses": [
+        { "gloss": "拉住馬的韁繩", "words": ["懸崖勒馬"] },
+        { "gloss": "強迫", "words": ["勒索", "勒令"] }
+      ]},
+      { "book": "ㄌㄟ", "senses": [
+        { "gloss": "用繩子綁住再拉緊", "words": ["勒緊"] }
+      ]}
+    ],
+    "勞": [
+      { "book": "ㄌㄠˊ", "senses": [
+        { "gloss": "辛苦工作", "words": ["勤勞", "任勞任怨"] },
+        { "gloss": "請人幫忙的客氣話", "words": ["勞駕", "勞煩"] },
+        { "gloss": "功績", "words": ["功勞", "汗馬之勞"] },
+        { "gloss": "工作的人", "words": ["勞工", "勞資"] }
+      ]},
+      { "book": "ㄌㄠˋ", "senses": [
+        { "gloss": "慰問、鼓勵別人", "words": ["慰勞", "勞軍"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "頭", "word": "盡頭" },
+    { "type": "word", "char": "勞", "word": "勞軍" },
+    { "type": "word", "char": "頭", "word": "木頭" },
+    { "type": "word", "char": "勒", "word": "勒令" },
+    { "type": "sentence", "char": "勞", "word": "任勞任怨", "text": "學校工友伯伯總是任勞任怨地整理校園。" },
+    { "type": "sentence", "char": "頭", "word": "頭目", "text": "部落的頭目親切地歡迎我們。" },
+    { "type": "sentence", "char": "勞", "word": "慰勞", "text": "比賽結束，校長準備點心慰勞選手。" },
+    { "type": "sentence", "char": "勒", "word": "勒緊", "text": "出發前，他把背包的帶子勒緊。" },
+    { "type": "odd", "char": "頭", "words": ["盡頭", "石頭", "頭領", "洗頭"] },
+    { "type": "pick", "char": "勒", "word": "懸崖勒馬", "text": "發現走錯方向就要懸崖勒馬。" }
+  ]
+}

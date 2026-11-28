@@ -1,0 +1,54 @@
+{
+  "unit": 17,
+  "page": 20,
+  "chars": {
+    "聽": [
+      { "book": "ㄊㄧㄥ", "senses": [
+        { "gloss": "用耳朵接收聲音", "words": ["聽力", "聽覺"] },
+        { "gloss": "打探消息", "words": ["打聽"] },
+        { "gloss": "依照別人的話去做", "words": ["聽從", "聽話"] }
+      ]},
+      { "book": "ㄊㄧㄥˋ", "senses": [
+        { "gloss": "隨它去、任憑", "words": ["聽天由命", "聽其自然"] }
+      ]}
+    ],
+    "調": [
+      { "book": "ㄊㄧㄠˊ", "senses": [
+        { "gloss": "混合、搭配", "words": ["調味", "調色"] },
+        { "gloss": "讓雙方和好", "words": ["調解", "調停", "協調"] },
+        { "gloss": "開玩笑、捉弄", "words": ["調皮", "調侃"] },
+        { "gloss": "和順、正常", "words": ["風調雨順"] }
+      ]},
+      { "book": "ㄉㄧㄠˋ", "senses": [
+        { "gloss": "變動、轉換", "words": ["調動", "調職"] },
+        { "gloss": "說法、論點", "words": ["陳腔濫調"] },
+        { "gloss": "說話或唱歌的腔調", "words": ["南腔北調", "音調"] },
+        { "gloss": "派遣、安排", "words": ["調兵遣將"] }
+      ]}
+    ],
+    "魄": [
+      { "book": "ㄆㄛˋ", "senses": [
+        { "gloss": "人的精神", "words": ["魂魄", "失魂落魄"] },
+        { "gloss": "做事的膽識和精力", "words": ["氣魄", "體魄", "魄力"] }
+      ]},
+      { "book": "ㄊㄨㄛˋ", "senses": [
+        { "gloss": "窮困、不得意", "words": ["落魄"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "調", "book": "ㄊㄧㄠˊ", "what": "例詞「調戲」", "reason": "帶有騷擾的意思，不適合兒少；改用「調皮、調侃」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "調", "word": "調味" },
+    { "type": "word", "char": "調", "word": "腔調" },
+    { "type": "word", "char": "魄", "word": "氣魄" },
+    { "type": "word", "char": "聽", "word": "聽從" },
+    { "type": "sentence", "char": "調", "word": "調動", "text": "老師把各組的座位重新調動了一次。" },
+    { "type": "sentence", "char": "魄", "word": "魄力", "text": "她做決定又快又果斷，很有魄力。" },
+    { "type": "sentence", "char": "聽", "word": "打聽", "text": "我去打聽一下明天社團幾點集合。" },
+    { "type": "sentence", "char": "調", "word": "音調", "text": "他唱歌的音調很穩，一點也不走音。" },
+    { "type": "pick", "char": "聽", "word": "聽天由命", "text": "努力準備就不用聽天由命。" },
+    { "type": "pick", "char": "魄", "word": "落魄", "text": "故事裡落魄的畫家，後來成了大師。" }
+  ]
+}

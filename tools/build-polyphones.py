@@ -151,7 +151,7 @@ def build(D, units):
                         elif st == 'missing':
                             app_words.append({'w': w, 'zhuyin': None})
                     rg['senses'].append(rs)
-                    if app_words:
+                    if app_words or not s['words']:
                         sense = {'gloss': s['gloss']}
                         if s.get('note'):
                             sense['note'] = s['note']
