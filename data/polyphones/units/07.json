@@ -1,0 +1,61 @@
+{
+  "unit": 7,
+  "page": 10,
+  "chars": {
+    "胖": [
+      { "book": "ㄆㄤˋ", "senses": [
+        { "gloss": "身上肉多、體型豐滿，和「瘦」相反", "words": ["肥胖"] }
+      ]},
+      { "book": "ㄆㄢˊ", "senses": [
+        { "gloss": "安適、舒坦", "words": ["心寬體胖", "心廣體胖"] }
+      ]}
+    ],
+    "秤": [
+      { "book": "ㄆㄧㄥˊ", "senses": [
+        { "gloss": "量東西輕重的工具", "words": ["天秤"] }
+      ]},
+      { "book": "ㄔㄥˋ", "senses": [
+        { "gloss": "量重量的器具", "words": ["磅秤"] },
+        { "gloss": "量重量", "words": ["秤重"] }
+      ]}
+    ],
+    "匹": [
+      { "book": "ㄆㄧ", "senses": [
+        { "gloss": "計算馬、驢等牲畜的量詞", "words": ["一匹馬", "馬匹"] }
+      ]},
+      { "book": "ㄆㄧˇ", "senses": [
+        { "gloss": "實力相當", "words": ["匹敵"] },
+        { "gloss": "配得上、配合", "words": ["匹配"] },
+        { "gloss": "單獨一個的", "words": ["匹夫", "匹婦"] },
+        { "gloss": "計算整捲布料的量詞", "words": ["一匹布"] }
+      ]}
+    ],
+    "漂": [
+      { "book": "ㄆㄧㄠ", "senses": [
+        { "gloss": "浮在水面上，隨水移動", "words": ["漂浮", "漂流"] }
+      ]},
+      { "book": "ㄆㄧㄠˇ", "senses": [
+        { "gloss": "用水沖洗", "words": ["漂洗"] },
+        { "gloss": "用藥水讓東西變白", "words": ["漂白"] }
+      ]},
+      { "book": "ㄆㄧㄠˋ", "senses": [
+        { "gloss": "好看、出色", "words": ["漂亮"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "匹", "book": "ㄆㄧˇ", "what": "例詞「相匹」", "reason": "辭典沒有這個詞" }
+  ],
+  "practice": [
+    { "type": "word", "char": "漂", "word": "漂白" },
+    { "type": "word", "char": "匹", "word": "匹敵" },
+    { "type": "word", "char": "胖", "word": "肥胖" },
+    { "type": "word", "char": "匹", "word": "馬匹" },
+    { "type": "sentence", "char": "匹", "word": "匹敵", "text": "這兩支球隊實力相當，可以互相匹敵。" },
+    { "type": "sentence", "char": "漂", "word": "漂白", "text": "白襯衫經過漂白後，像新的一樣。" },
+    { "type": "sentence", "char": "漂", "word": "漂流", "text": "瓶中信在海上漂流了好幾個月。" },
+    { "type": "sentence", "char": "胖", "word": "心寬體胖", "text": "爺爺退休後心寬體胖，每天都笑呵呵。" },
+    { "type": "pick", "char": "匹", "word": "一匹馬", "text": "草原上有一匹馬在吃草。" },
+    { "type": "pick", "char": "秤", "word": "磅秤", "text": "姊姊站上磅秤量體重。" }
+  ]
+}

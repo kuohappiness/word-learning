@@ -1,0 +1,55 @@
+{
+  "unit": 6,
+  "page": 9,
+  "aliases": { "祕魯": "秘魯" },
+  "chars": {
+    "扒": [
+      { "book": "ㄅㄚ", "senses": [
+        { "gloss": "剝開", "words": ["扒開"] },
+        { "gloss": "用手攀住", "words": ["扒住"] },
+        { "gloss": "扯下來", "words": ["扒衣裳"] }
+      ]},
+      { "book": "ㄆㄚˊ", "senses": [
+        { "gloss": "用手或工具挖、撥", "words": ["扒洞"] },
+        { "gloss": "抓、搔", "words": ["扒癢"] },
+        { "gloss": "偷別人身上的財物", "words": ["扒手", "扒竊"] }
+      ]}
+    ],
+    "把": [
+      { "book": "ㄅㄚˇ", "senses": [
+        { "gloss": "握著、拿著", "words": ["把手言歡"] },
+        { "gloss": "看守、掌控", "words": ["把持", "把舵", "把關"] },
+        { "gloss": "抱著小孩讓他大小便", "words": ["把屎", "把尿"] },
+        { "gloss": "計算有把手的東西的量詞", "words": ["兩把傘"] }
+      ]},
+      { "book": "ㄅㄚˋ", "senses": [
+        { "gloss": "器物上讓手握的部分", "words": ["槍把", "刀把"] }
+      ]}
+    ],
+    "祕": [
+      { "book": "ㄅㄧˋ", "senses": [
+        { "gloss": "只用在國名「祕魯」", "words": ["祕魯"] }
+      ]},
+      { "book": "ㄇㄧˋ", "senses": [
+        { "gloss": "不讓人知道、不公開的", "words": ["神祕", "隱祕", "祕密"] },
+        { "gloss": "少見、珍貴的", "words": ["祕寶", "祕籍"] },
+        { "gloss": "「祕書」的簡稱", "words": ["文祕", "主祕"] }
+      ]}
+    ]
+  },
+  "skipped": [
+    { "char": "把", "book": "ㄅㄚˇ", "what": "例詞「把酒言歡」", "reason": "辭典沒有這個詞，且和喝酒有關；改用辭典的「把手言歡」" }
+  ],
+  "practice": [
+    { "type": "word", "char": "扒", "word": "扒開" },
+    { "type": "word", "char": "扒", "word": "扒手" },
+    { "type": "word", "char": "祕", "word": "祕書" },
+    { "type": "word", "char": "把", "word": "把舵" },
+    { "type": "sentence", "char": "把", "word": "把關", "text": "校門口有警衛伯伯把關，陌生人不能隨便進來。" },
+    { "type": "sentence", "char": "祕", "word": "祕密", "text": "這是我們兩個人之間的小祕密。" },
+    { "type": "sentence", "char": "扒", "word": "扒手", "text": "車站人多，要小心扒手。" },
+    { "type": "sentence", "char": "扒", "word": "扒開", "text": "弟弟把橘子扒開，分給大家吃。" },
+    { "type": "pick", "char": "祕", "word": "祕魯", "text": "祕魯有古老的印加文明遺跡。" },
+    { "type": "pick", "char": "把", "word": "刀把", "text": "媽媽握著刀把，小心地切菜。" }
+  ]
+}

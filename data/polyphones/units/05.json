@@ -1,0 +1,53 @@
+{
+  "unit": 5,
+  "page": 8,
+  "chars": {
+    "北": [
+      { "book": "ㄅㄟˇ", "senses": [
+        { "gloss": "方位，和「南」相對", "words": ["北方", "北風"] },
+        { "gloss": "打輸了", "words": ["敗北"] }
+      ]},
+      { "book": "ㄅㄟˋ", "senses": [
+        { "gloss": "違背", "note": "同「背」", "words": ["反北"] }
+      ]}
+    ],
+    "繃": [
+      { "book": "ㄅㄥ", "senses": [
+        { "gloss": "拉緊、綁緊", "words": ["繃緊"] },
+        { "gloss": "衣物撐得緊緊的", "words": ["緊繃"] },
+        { "gloss": "勉強撐住", "words": ["繃場面"] },
+        { "gloss": "包紮傷口的布條", "words": ["繃帶"] }
+      ]},
+      { "book": "ㄅㄥˇ", "senses": [
+        { "gloss": "板著臉，表情僵硬", "words": ["繃著臉"] }
+      ]},
+      { "book": "ㄅㄥˋ", "senses": [
+        { "gloss": "裂開", "words": ["拉鍊繃了"] }
+      ]}
+    ],
+    "背": [
+      { "book": "ㄅㄟ", "senses": [
+        { "gloss": "用背或肩膀扛著東西", "words": ["背包", "背小孩"] }
+      ]},
+      { "book": "ㄅㄟˋ", "senses": [
+        { "gloss": "東西的後面或反面", "words": ["山背", "刀背"] },
+        { "gloss": "運氣不好；聽力不好", "words": ["手氣背", "耳背"] },
+        { "gloss": "用背對著", "words": ["背山面海", "背水一戰"] },
+        { "gloss": "違反、不遵守", "words": ["背約", "背叛", "背信忘義"] },
+        { "gloss": "憑記憶念出來", "words": ["背書", "背臺詞"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "背", "word": "背包" },
+    { "type": "word", "char": "北", "word": "北風" },
+    { "type": "word", "char": "繃", "word": "緊繃" },
+    { "type": "word", "char": "北", "word": "敗北" },
+    { "type": "sentence", "char": "繃", "word": "繃著臉", "text": "他整天繃著臉，不知道在想什麼。" },
+    { "type": "sentence", "char": "背", "word": "背水一戰", "text": "最後一局了，全隊決定背水一戰。" },
+    { "type": "sentence", "char": "背", "word": "背小孩", "text": "爸爸在步道上背小孩，一步一步往上走。" },
+    { "type": "sentence", "char": "背", "word": "背臺詞", "text": "演出前，大家都在認真背臺詞。" },
+    { "type": "pick", "char": "繃", "word": "繃帶", "text": "護理師在他的膝蓋纏上繃帶。" },
+    { "type": "odd", "char": "背", "words": ["背書", "背包", "背叛", "耳背"] }
+  ]
+}

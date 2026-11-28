@@ -1,0 +1,57 @@
+{
+  "unit": 1,
+  "page": 4,
+  "chars": {
+    "便": [
+      { "book": "ㄅㄧㄢˋ", "senses": [
+        { "gloss": "做起來順手、不麻煩", "words": ["便利", "方便"] },
+        { "gloss": "簡單、不正式的", "words": ["便鞋", "便飯"] },
+        { "gloss": "就", "words": ["便是"] },
+        { "gloss": "大小便，身體排出的屎和尿", "words": ["大便", "小便"] }
+      ]},
+      { "book": "ㄆㄧㄢˊ", "senses": [
+        { "gloss": "價錢低", "words": ["便宜"] },
+        { "gloss": "形容肚子很大、身體胖胖的樣子", "words": ["大腹便便"] }
+      ]}
+    ],
+    "傍": [
+      { "book": "ㄅㄤ", "senses": [
+        { "gloss": "接近某個時候", "words": ["傍晚", "傍午"] }
+      ]},
+      { "book": "ㄅㄤˋ", "senses": [
+        { "gloss": "靠近、挨著", "words": ["依山傍水"] }
+      ]}
+    ],
+    "膀": [
+      { "book": "ㄅㄤˇ", "senses": [
+        { "gloss": "肩頭到手肘之間的部位", "words": ["肩膀"] },
+        { "gloss": "鳥類的兩隻翅膀", "words": ["翅膀"] }
+      ]},
+      { "book": "ㄆㄤˊ", "senses": [
+        { "gloss": "身體裡暫時存放尿液的器官", "words": ["膀胱"] }
+      ]}
+    ],
+    "磅": [
+      { "book": "ㄅㄤˋ", "senses": [
+        { "gloss": "英制的重量單位", "words": ["英磅"] },
+        { "gloss": "用磅秤量重量", "words": ["磅體重"] },
+        { "gloss": "量重量的秤", "words": ["磅秤", "地磅"] }
+      ]},
+      { "book": "ㄆㄤ", "senses": [
+        { "gloss": "形容氣勢非常廣大", "words": ["磅礴"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "磅", "word": "英磅" },
+    { "type": "word", "char": "傍", "word": "傍晚" },
+    { "type": "word", "char": "便", "word": "便利" },
+    { "type": "word", "char": "膀", "word": "翅膀" },
+    { "type": "sentence", "char": "便", "word": "便宜", "text": "這家文具店的筆又好寫又便宜。" },
+    { "type": "sentence", "char": "傍", "word": "依山傍水", "text": "學校後面有山、前面有河，真是依山傍水。" },
+    { "type": "sentence", "char": "膀", "word": "肩膀", "text": "哥哥練了一年游泳，肩膀變得更結實了。" },
+    { "type": "sentence", "char": "磅", "word": "磅礴", "text": "站在瀑布前，水聲氣勢磅礴。" },
+    { "type": "pick", "char": "膀", "word": "膀胱", "text": "想上廁所就要說，膀胱憋太久對身體不好。" },
+    { "type": "pick", "char": "磅", "word": "磅秤", "text": "健康檢查時，護理師請我們站上磅秤。" }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "unit": 10,
+  "page": 13,
+  "chars": {
+    "分": [
+      { "book": "ㄈㄣ", "senses": [
+        { "gloss": "把整體拆開，和「合」相反", "words": ["分割", "分離"] },
+        { "gloss": "一起承擔", "words": ["分憂解勞"] },
+        { "gloss": "辨別", "words": ["分辨", "分辨是非"] },
+        { "gloss": "從總機構分出來的單位", "words": ["分局", "分隊", "分行", "分店"] },
+        { "gloss": "離開", "words": ["分開"] },
+        { "gloss": "計算成績的單位", "words": ["滿分"] }
+      ]},
+      { "book": "ㄈㄣˋ", "senses": [
+        { "gloss": "在團體中的位置和應盡的責任", "words": ["身分", "名分"] },
+        { "gloss": "人和人之間的情誼", "words": ["情分", "緣分"] },
+        { "gloss": "東西裡含有的成分", "words": ["糖分", "養分"] },
+        { "gloss": "整體中的一部分", "note": "同「份」", "words": ["部分"] }
+      ]}
+    ],
+    "坊": [
+      { "book": "ㄈㄤ", "senses": [
+        { "gloss": "街道、巷子", "words": ["街坊"] },
+        { "gloss": "市區裡的店鋪", "words": ["茶坊", "書坊"] },
+        { "gloss": "規模小的工作場所", "words": ["磨坊", "染坊"] },
+        { "gloss": "表揚人物的紀念牌樓", "words": ["牌坊"] }
+      ]},
+      { "book": "ㄈㄤˊ", "senses": [
+        { "gloss": "擋水的堤防", "words": ["堤坊"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "分", "word": "養分" },
+    { "type": "word", "char": "坊", "word": "磨坊" },
+    { "type": "word", "char": "分", "word": "分割" },
+    { "type": "word", "char": "坊", "word": "茶坊" },
+    { "type": "sentence", "char": "坊", "word": "磨坊", "text": "這間老磨坊還在用水車磨米。" },
+    { "type": "sentence", "char": "坊", "word": "染坊", "text": "這家染坊用植物替布料染色。" },
+    { "type": "sentence", "char": "分", "word": "緣分", "text": "我們從一年級就同班，真是有緣分。" },
+    { "type": "sentence", "char": "分", "word": "分店", "text": "這家麵包店在我家附近開了分店。" },
+    { "type": "pick", "char": "分", "word": "糖分", "text": "飲料裡的糖分太高，要少喝。" },
+    { "type": "pick", "char": "坊", "word": "書坊", "text": "巷口新開了一間小書坊。" }
+  ]
+}

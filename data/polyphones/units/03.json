@@ -1,0 +1,50 @@
+{
+  "unit": 3,
+  "page": 6,
+  "chars": {
+    "伯": [
+      { "book": "ㄅㄛˊ", "senses": [
+        { "gloss": "對長輩的稱呼，例如爸爸的哥哥", "words": ["伯父", "老伯", "世伯"] },
+        { "gloss": "兄弟中排行最大的", "words": ["伯仲"] }
+      ]},
+      { "book": "ㄅㄚˋ", "senses": [
+        { "gloss": "古代諸侯的領袖", "note": "同「霸」", "words": ["五伯"] }
+      ]}
+    ],
+    "屏": [
+      { "book": "ㄅㄧㄥˇ", "senses": [
+        { "gloss": "暫時停住、忍住", "words": ["屏息", "屏氣凝神"] },
+        { "gloss": "退開、躲起來不露面", "words": ["屏居", "屏跡"] },
+        { "gloss": "排除、丟開", "words": ["屏除", "屏棄"] }
+      ]},
+      { "book": "ㄆㄧㄥˊ", "senses": [
+        { "gloss": "像牆一樣擋住視線的東西", "words": ["屏風", "雀屏", "屏障"] },
+        { "gloss": "裱成長條、成套掛起來的字畫", "words": ["字屏", "畫屏"] }
+      ]}
+    ],
+    "暴": [
+      { "book": "ㄅㄠˋ", "senses": [
+        { "gloss": "又急又猛", "words": ["暴雨", "暴飲暴食"] },
+        { "gloss": "凶惡殘忍", "words": ["殘暴", "暴虐", "暴行"] },
+        { "gloss": "突然", "words": ["暴漲", "暴發戶"] },
+        { "gloss": "糟蹋、不愛惜", "words": ["自暴自棄"] }
+      ]},
+      { "book": "ㄆㄨˋ", "senses": [
+        { "gloss": "曬", "note": "同「曝」", "words": ["一暴十寒"] },
+        { "gloss": "顯露出來", "words": ["暴露"] }
+      ]}
+    ]
+  },
+  "practice": [
+    { "type": "word", "char": "屏", "word": "屏障" },
+    { "type": "word", "char": "暴", "word": "暴雨" },
+    { "type": "word", "char": "伯", "word": "伯父" },
+    { "type": "word", "char": "屏", "word": "屏息" },
+    { "type": "sentence", "char": "伯", "word": "大伯", "text": "過年的家族聚會由大伯主持。" },
+    { "type": "sentence", "char": "屏", "word": "屏氣凝神", "text": "大家屏氣凝神，等著聽比賽結果。" },
+    { "type": "sentence", "char": "屏", "word": "屏風", "text": "客廳和餐廳中間放了一座屏風。" },
+    { "type": "sentence", "char": "暴", "word": "一暴十寒", "text": "練琴要天天練，不能一暴十寒。" },
+    { "type": "pick", "char": "屏", "word": "屏障", "text": "中央山脈像一道屏障，擋住了冬天的季風。" },
+    { "type": "pick", "char": "暴", "word": "暴漲", "text": "連下三天大雨，溪水暴漲。" }
+  ]
+}
