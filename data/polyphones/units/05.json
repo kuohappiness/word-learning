@@ -6,9 +6,6 @@
       { "book": "ㄅㄟˇ", "senses": [
         { "gloss": "方位，和「南」相對", "words": ["北方", "北風"] },
         { "gloss": "打輸了", "words": ["敗北"] }
-      ]},
-      { "book": "ㄅㄟˋ", "senses": [
-        { "gloss": "違背", "note": "同「背」", "words": ["反北"] }
       ]}
     ],
     "繃": [
@@ -38,6 +35,9 @@
       ]}
     ]
   },
+  "skipped": [
+    { "char": "北", "book": "ㄅㄟˋ", "what": "讀音 ㄅㄟˋ「違背」（反北）", "reason": "辭典沒有這個詞，使用者決定刪除" }
+  ],
   "practice": [
     { "type": "word", "char": "背", "word": "背包" },
     { "type": "word", "char": "北", "word": "北風" },
